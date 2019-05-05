@@ -28,11 +28,14 @@ import java.util.Hashtable;
 import java.util.Scanner;
 import javafx.event.EventHandler;
 import javafx.scene.CacheHint;
+import javafx.scene.SnapshotParameters;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.text.Font;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.transform.Rotate;
 
 /**
@@ -48,7 +51,7 @@ public class FXCanvasDevice implements ICanvasDevice {
     protected Canvas canvas;
     protected Hashtable<String, Image> map = new Hashtable();
     protected long nPixsDrawn = 0;
-    protected int viewportX = 0, viewportY = 0;
+    protected int viewportX=0, viewportY = 0;
 
     //--------------------------------------
     //methods
@@ -67,9 +70,7 @@ public class FXCanvasDevice implements ICanvasDevice {
 
     public FXCanvasDevice(Canvas canvas) {
         this.canvas = canvas;
-        if (canvas != null) {
-            canvas.setCache(false);
-        }
+        canvas.setCache(false);
         //canvas.setCacheHint(CacheHint.SPEED);
 
     }
@@ -81,22 +82,23 @@ public class FXCanvasDevice implements ICanvasDevice {
         x -= this.viewportX;
         y -= this.viewportY;
         //1. SPEED IT UP. If not in view port, skip it
-        if ((x <= -100 || x > this.getWidth() + 100 || y < -100 || y > this.getHeight() + 100)
-                || (x + 100 < -1000 || x + 100 > this.getWidth() + 100 || y + 100 < -100 || y + 100 > this.getHeight() + 100)) {
+        if( (x<=-100 || x>this.getWidth()+100 || y<-100 || y>this.getHeight()+100) ||
+                (x+100<-1000 || x+100>this.getWidth()+100 || y+100<-100 || y+100>this.getHeight()+100) )  {
             return; //don't draw it
         }
         //1. calculate the actual pixels to be drawn in the view port (due to clipping)
         int minX = Integer.max(x, 0);
-        int maxX = Integer.min(x + width, this.getWidth());
+        int maxX = Integer.min(x+width, this.getWidth());
         int minY = Integer.max(y, 0);
-        int maxY = Integer.min(y + height, this.getHeight());
+        int maxY = Integer.min(y+height, this.getHeight());
         int xDiff = maxX - minX;
         int yDiff = maxY - minY;
-        if (xDiff < 0 || yDiff < 0) {
+        if(xDiff<0 || yDiff<0) {
             int bp = 1; //should exception
         }
-        this.nPixsDrawn += xDiff * yDiff;
-
+        this.nPixsDrawn += xDiff*yDiff;
+        
+        
         //2. Real drawing
         Image img = getImage(imgPath);
         GraphicsContext gc = mygc != null ? mygc : this.canvas.getGraphicsContext2D();
@@ -136,7 +138,7 @@ public class FXCanvasDevice implements ICanvasDevice {
     @Override
     public void setupEventHandler(IGameEngine gameEngine) {
         ICanvasDevice me = this;
-
+        
         //2. set up mouse drag event
         this.canvas.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
@@ -147,6 +149,18 @@ public class FXCanvasDevice implements ICanvasDevice {
                 bRightDown = event.isSecondaryButtonDown();
             }
         });
+        
+        this.canvas.setOnMouseMoved(new EventHandler<MouseEvent>(){
+             @Override
+            public void handle(MouseEvent event) {
+
+                x1 = (int) event.getX();
+                y1 = (int) event.getY();
+                if(!event.isPrimaryButtonDown()){
+                    gameEngine.onMouseMoved(me, x1, y1);
+                }
+            }
+        });
 
         this.canvas.setOnMouseReleased(new EventHandler<MouseEvent>() {
             @Override
@@ -155,10 +169,10 @@ public class FXCanvasDevice implements ICanvasDevice {
                 y2 = (int) event.getY();
                 if (x1 != x2 || y1 != y2) {
                     gameEngine.onRegionSelected(me, x1, y1, x2, y2);
-                } else {
-                    if (bRightDown) {
+                }else{
+                    if(bRightDown){
                         gameEngine.onRightClick(me, x1, y1);
-                    } else {
+                    }else{
                         gameEngine.onLeftClick(me, x1, y1);
                     }
                 }
@@ -174,8 +188,8 @@ public class FXCanvasDevice implements ICanvasDevice {
     @Override
     public String readFile(String filepath) {
         int idx = filepath.indexOf("resources/");
-        filepath = filepath.substring(idx + "resources/".length());
-
+        filepath = filepath.substring(idx+"resources/".length());
+        
         InputStream is = getClass().getClassLoader().getResourceAsStream(filepath);
         Scanner sc = new Scanner(is);
         String sContent = sc.useDelimiter("\\Z").next();
@@ -189,23 +203,49 @@ public class FXCanvasDevice implements ICanvasDevice {
 
     @Override
     public void setViewPort(int x, int y) {
+        //TEST USE REMOVE LATER ---------
+        if(y==1000){
+            int bp = 1;
+        }
+        //TEST USE REMOVE LATER -----------
         this.viewportX = x;
         this.viewportY = y;
     }
 
-   @Override
+    @Override
     public void drawText(String msg, int x, int y, int fontsize) {
-        GraphicsContext gc = this.canvas.getGraphicsContext2D();
-        gc.setFont(new Font(fontsize));
-        gc.strokeText(msg, x, y);
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void drawLine(int x1, int y1, int x2, int y2) {
-         GraphicsContext gc = this.canvas.getGraphicsContext2D();
-         gc.strokeLine(x1, y1, x2, y2);
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    @Override
+    public void takeSnapshot(String imgname) {
+        WritableImage img = new WritableImage(this.getWidth(), this.getHeight());
+        this.canvas.snapshot(new SnapshotParameters(), img);
+        this.map.put(imgname, img);
+    }
 
-    
+    @Override
+    public void drawRectangle(int x, int y, int w, int h, String color) {
+        GraphicsContext gc = this.canvas.getGraphicsContext2D();
+        
+        Color cColor = Color.web(color);
+        gc.setFill(cColor);
+        gc.fillRect(x, y, w, h);
+    }
+
+    @Override
+    public int getX() {
+        return this.viewportX;
+    }
+
+    @Override
+    public int getY() {
+        return this.viewportY;
+    }
+
 }

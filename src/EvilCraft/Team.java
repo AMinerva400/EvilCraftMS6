@@ -48,19 +48,9 @@ public class Team {
      * @param spriteName
      * @return 
      */
-    protected static String [] units = new String [] {ShopButton.INFANTRY, ShopButton.TANK, ShopButton.PLANE};
-    protected int [] costs = new int [] {100, 500, 1000};
+  
     public boolean PurchaseSprite(String spriteName){
-        for(int i=0; i<3; i++){
-            if(units[i].equals(spriteName)){
-                if(this.cash>=costs[i]){
-                    this.cash-= costs[i];
-                    return true;
-                }
-            }
-        }
-        return false;
-        
+       throw new UnsupportedOperationException("not implemented yet");
     }
     
     public int getCash(){

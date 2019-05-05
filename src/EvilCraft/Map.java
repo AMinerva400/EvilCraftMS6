@@ -17,6 +17,7 @@
  */
 package EvilCraft;
 
+import BridgePattern.ICanvasDevice;
 import FXDevices.FXCanvasDevice;
 
 /**
@@ -28,8 +29,8 @@ public class Map {
     protected String [][] arrTiles;
     
     //--- OPERATIONS ----
-    public Map(String mapPath){
-        FXCanvasDevice canvas = new FXCanvasDevice(null);
+    public Map(String mapPath, ICanvasDevice canvas){
+        
         String sAll = canvas.readFile(mapPath);
         String [] arrLines = sAll.split("\n");
         arrTiles = new String [arrLines.length][];
