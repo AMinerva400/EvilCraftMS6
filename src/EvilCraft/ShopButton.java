@@ -80,7 +80,7 @@ public class ShopButton {
             this.tickLeft--;
             if (this.tickLeft == 1) {
                 Base base = this.team.getBase();
-                Point pt = GameEngine.getInstance().getFreeSpace(base.x, base.y, 50, 50);
+                Point pt = GameEngine.getInstance().getFreeSpace(base.getX(), base.getY(), 50, 50);
                 Sprite sprite = null;
                 if (this.unitName.equals(TANK)) {
                     sprite = new Tank(team, pt.x, pt.y, 50, 50);

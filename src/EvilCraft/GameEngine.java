@@ -62,8 +62,8 @@ public class GameEngine implements IGameEngine{
         this.minimap = minimap;
         this.buttonCanvas = factoryPanel;
         this.soundDevice = soundDevice;
-        this.loadGameMap(mapPath);
-        this.mouseSprite = new MouseSprite(this.mainview, this.minimap);
+        this.map = new Map(this.mapPath, this.mainview);
+        this.mouseSprite = new MouseSprite(this.mainview, this.minimap, this.map);
         //TEMPORARY
         taken = new boolean [20][];
         for(int i=0; i<20; i++){
@@ -78,6 +78,7 @@ public class GameEngine implements IGameEngine{
         this.arrTeams.add(team1);
         this.arrTeams.add(team2);
         ge_instance = this;
+        this.loadGameMap(mapPath);
     }
     
     public static GameEngine getInstance(){
@@ -139,10 +140,10 @@ public class GameEngine implements IGameEngine{
         if(this.arrSelected!=null && this.arrSelected.size()>0){
             for(Sprite sprite: this.arrSelected){
                 sprite.setNavigationGoal(pt);
-                sprite.setAttackGoal(target);
+                sprite.setAttackGoal(target.getID());
             }
         }
-        this.mouseSprite.handleEvnet(MouseEvent.RightClick, canvas, x, y, this.arrSelected);        
+        this.mouseSprite.handleEvent(MouseEvent.RightClick, canvas, x, y, this.arrSelected);        
     }
 
     @Override
@@ -152,7 +153,7 @@ public class GameEngine implements IGameEngine{
             Point pt = this.getGlobalCoordinates(canvas, x, y, map);
             this.mainview.setViewPort(pt.x-mainview.getWidth()/2, pt.y-mainview.getHeight()/2);
         }
-        this.mouseSprite.handleEvnet(MouseEvent.LeftClick, canvas, x, y, null);
+        this.mouseSprite.handleEvent(MouseEvent.LeftClick, canvas, x, y, null);
     }
 
     @Override

@@ -40,18 +40,21 @@ public class Tank extends Sprite {
 
     @Override
     public void update() {
+        int x = getX();
+        int y = getY();
         if(this.navigationGoal!=null){
-            if(this.x<navigationGoal.x){
+            if(this.getX()<navigationGoal.x){
                 x++;
             }else{
                 x--;
             }
-            if(this.y<navigationGoal.y){
+            if(this.getY()<navigationGoal.y){
                 y++;
             }else{
                 y--;
             }
         }
+        this.setPos(x, y);
     }
 
     @Override
@@ -65,7 +68,7 @@ public class Tank extends Sprite {
         int mw = GameEngine.getInstance().map.getNumRows()*100;
         int vw = minimap.getWidth();
         String color = this.team.name.indexOf("Human")>=0? "#FF0000": "#0000FF";
-        minimap.drawRectangle(x*vw/mw, y*vw/mw, w*vw/mw, h*vw/mw, color);
+        minimap.drawRectangle(getX()*vw/mw, getY()*vw/mw, getW()*vw/mw, getH()*vw/mw, color);
     }
 
     @Override

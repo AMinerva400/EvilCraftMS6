@@ -41,7 +41,7 @@ public class MouseSprite extends Sprite {
     protected ICanvasDevice minimap;
     protected Map map;
 
-    public MouseSprite(ICanvasDevice mainview, ICanvasDevice minimap) {
+    public MouseSprite(ICanvasDevice mainview, ICanvasDevice minimap, Map map) {
         super(null, 0, 0, 0, 0, Integer.MAX_VALUE, 3, Integer.MAX_VALUE);
         this.mainview = mainview;
         this.minimap = minimap;
@@ -59,7 +59,7 @@ public class MouseSprite extends Sprite {
      *
 */
 
-    public void handleEvnet(MouseEvent eventType, ICanvasDevice canvas, int x, int y, ArrayList<Sprite> arrSprites) {
+    public void handleEvent(MouseEvent eventType, ICanvasDevice canvas, int x, int y, ArrayList<Sprite> arrSprites) {
         GameEngine ge = GameEngine.getInstance();
         if (eventType == MouseEvent.LeftClick) {
             this.arrTargets = null;
