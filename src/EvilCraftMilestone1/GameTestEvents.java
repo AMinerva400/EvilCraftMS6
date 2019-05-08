@@ -58,10 +58,6 @@ public class GameTestEvents implements IGameEngine{
         System.out.println("Region Selected from (" + x1 + ", " + y1 + ") to (" + x2 + ", " + y2 + ")");
     }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/NEW_MODULE_C
     @Override
     public void onMouseMoved(ICanvasDevice canvas, int x, int y) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
