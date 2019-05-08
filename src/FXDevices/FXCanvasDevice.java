@@ -16,11 +16,12 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 package FXDevices;
-
+//merge conflicts fixed by akash
 import BridgePattern.ICanvasDevice;
 import BridgePattern.IGameEngine;
 import BridgePattern.IStopWatch;
 import java.io.InputStream;
+import java.util.Hashtable;
 import java.util.Scanner;
 import javafx.event.EventHandler;
 import javafx.scene.text.Font;
