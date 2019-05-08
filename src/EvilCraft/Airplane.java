@@ -23,14 +23,6 @@ import BridgePattern.ICanvasDevice;
  *
  * @author csc190
  */
-<<<<<<< HEAD
-public class Airplane extends Sprite {
-
-    protected String pic = "resources/images/team_red/plane/plane.png";
-
-    public Airplane(Team team, int x, int y, int w, int h) {
-        super(team, x, y, w, h);
-=======
 public class Airplane extends Sprite{
     protected int degree;
     protected String picpath;
@@ -42,37 +34,23 @@ public class Airplane extends Sprite{
         }else{
              picpath = "resources/images/team_red/plane/plane.png";
         }
->>>>>>> origin/NEW_MODULE_C
     }
 
     @Override
     public void update() {
-<<<<<<< HEAD
-=======
-        
->>>>>>> origin/NEW_MODULE_C
     }
 
     @Override
     public void drawOnMainView(ICanvasDevice mainview) {
-<<<<<<< HEAD
-        mainview.drawImg(pic, x, y, w, h, 0);
-=======
         mainview.drawImg(picpath, this.getX(), this.getY(), this.getW(), this.getH(), this.degree);
->>>>>>> origin/NEW_MODULE_C
     }
 
     @Override
     public void drawOnMiniMap(ICanvasDevice minimap) {
-<<<<<<< HEAD
         int mw = GameEngine.getInstance().map.getNumRows() * 100;
         int vw = minimap.getWidth();
         String color = this.team.name.indexOf("Human") >= 0 ? "#FF0000" : "#0000FF";
         minimap.drawRectangle(x * vw / mw, y * vw / mw, w * vw / mw, h * vw / mw, color);
-    }
-
-=======
-        
     }
 
     @Override
@@ -97,6 +75,4 @@ public class Airplane extends Sprite{
         
         
     }
-    
->>>>>>> origin/NEW_MODULE_C
 }

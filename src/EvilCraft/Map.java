@@ -18,31 +18,16 @@
 package EvilCraft;
 
 import BridgePattern.ICanvasDevice;
-<<<<<<< HEAD
 import FXDevices.FXCanvasDevice;
-=======
 import java.util.LinkedList;
 import java.util.Queue;
 import javafx.util.Pair;
->>>>>>> origin/NEW_MODULE_C
 
 /**
  * Map will be later used to provide routing information
  * @author csc190
  */
 public class Map {
-<<<<<<< HEAD
-    // --- DATA MEMBERS -------
-    protected String [][] arrTiles;
-    
-    //--- OPERATIONS ----
-    public Map(String mapPath, ICanvasDevice canvas){
-        String sAll = canvas.readFile(mapPath);
-        String [] arrLines = sAll.split("\n");
-        arrTiles = new String [arrLines.length][];
-        for(int i=0; i<arrTiles.length; i++){
-            arrTiles[i] = arrLines[i].split(" ");
-=======
     protected String [][] tiles;
     protected int [][] map;
     /**
@@ -62,24 +47,15 @@ public class Map {
             for(int j=0; j<words.length; j++){
                 this.map[i][j] = isObstacle(words[j])? 1: 0;
             }
->>>>>>> origin/NEW_MODULE_C
         }
     }
     
     public int getNumRows(){
-<<<<<<< HEAD
-        return arrTiles.length;
-    }
-    
-    public int getNumCols(){
-        return arrTiles[0].length;
-=======
         return this.tiles.length;
     }
     
     public int getNumCols(){
         return this.tiles[0].length;
->>>>>>> origin/NEW_MODULE_C
     }
     
     /**
@@ -89,25 +65,15 @@ public class Map {
      * @return 
      */
     public String getMapTile(int row, int col){
-<<<<<<< HEAD
-        return arrTiles[row][col];
-    }
-    
-=======
         return this.tiles[row][col];
     }
     
-    protected static String [] obstacles = {"t1"};
->>>>>>> origin/NEW_MODULE_C
     /**
      * Given the symbol tell if it's an obstacle for ground units.
      * @param maptile
      * @return 
      */
-<<<<<<< HEAD
-    protected static final String obstacles [] = {"t1", "b1", "b2"}; 
-=======
->>>>>>> origin/NEW_MODULE_C
+    protected static final String obstacles [] = {"t1", "b1", "b2"};
     public boolean isObstacle(String maptile){
         for(String s: obstacles){
             if(s.equals(maptile)){
@@ -116,9 +82,7 @@ public class Map {
         }
         return false;
     }
-<<<<<<< HEAD
-=======
-    
+
     /**
      * Generate the 2d cost matrix based on the map, for pt as destination.
      * @param pt
@@ -177,5 +141,4 @@ public class Map {
         return res;
     
     }
->>>>>>> origin/NEW_MODULE_C
 }
