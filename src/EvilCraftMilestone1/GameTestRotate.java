@@ -66,5 +66,9 @@ public class GameTestRotate implements IGameEngine{
     public void onMouseMoved(ICanvasDevice canvas, int x, int y) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> origin/NEW_MODULE_C
 }

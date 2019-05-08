@@ -20,47 +20,38 @@ package EvilCraftMilestone4;
 import BridgePattern.ICanvasDevice;
 import BridgePattern.ISoundDevice;
 import EvilCraft.GameEngine;
-<<<<<<< HEAD
-import EvilCraft.Infantry;
-import EvilCraft.Tank;
-=======
 import EvilCraft.Point;
 import EvilCraft.Tank;
 import EvilCraft.Team;
->>>>>>> origin/NEW_MODULE_C
+import java.util.Random;
 
 /**
  *
  * @author csc190
  */
-public class ModuleBTestGameEngine extends GameEngine{
-    
-    public ModuleBTestGameEngine(String mapPath, ICanvasDevice mainview, ICanvasDevice minimap, ICanvasDevice factoryPanel, ISoundDevice sound) {
+public class TestC1GameEngine1 extends GameEngine {
+
+    public TestC1GameEngine1(String mapPath, ICanvasDevice mainview, ICanvasDevice minimap, ICanvasDevice factoryPanel, ISoundDevice sound) {
         super(mapPath, mainview, minimap, factoryPanel, sound);
     }
-    
-<<<<<<< HEAD
+
     @Override
-    public void init(){
+    public void init() {
         super.init();
+        Team myteam = this.getPlayerTeam();
+       
+        //1. create human tanks
+        for (int i = 0; i < 2; i++) {
+            Random rand = new Random();
+            int nx = 100 + rand.nextInt(500);
+            int ny = 100 + rand.nextInt(500);
+            Tank t1 = new Tank(myteam, nx, ny, 50, 50);
+            myteam.addSprite(t1);
+            //t1.setNavigationGoal(new Point(100, 500));
+            this.addSprite(t1);
+        }
         
-        Tank mytank1 = new Tank(this.getPlayerTeam(), 300, 300, 50, 50);
-        Tank mytank2 = new Tank(this.getPlayerTeam(), 1800, 1800, 50, 50);
-        this.addSprite(mytank1);
-        this.addSprite(mytank2);
-        this.getPlayerTeam().addSprite(mytank1);
-        this.getPlayerTeam().addSprite(mytank2);
-        
-        Infantry i1 = new Infantry(this.getAITeam(), 300, 500, 25, 25);
-        Infantry i2 = new Infantry(this.getAITeam(), 400, 500, 25, 25);
-        this.addSprite(i1);
-        this.addSprite(i2);
-        this.getAITeam().addSprite(i1);
-        this.getAITeam().addSprite(i2);
-        
-        
+       
     }
-=======
->>>>>>> origin/NEW_MODULE_C
-    
+
 }
