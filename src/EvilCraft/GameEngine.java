@@ -99,6 +99,7 @@ public class GameEngine implements IGameEngine{
         this.mouseSprite = new MouseSprite(mainview, minimap, map);
         this.mainview.setupEventHandler(this);
         this.loadGameMap(this.mapPath);
+        this.humanController = new ButtonController(this.getPlayerTeam(), this.buttonCanvas);
         this.aiButtonController = new ButtonController(this.getAITeam(), null); //no display device
         this.ai = new AI(this.getAITeam(), this.aiButtonController);
         //DON'T KILL THE ABOVE LINE

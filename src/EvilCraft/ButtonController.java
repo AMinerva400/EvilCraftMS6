@@ -55,7 +55,9 @@ public class ButtonController implements IGameEngine {
             ShopButton button = new ShopButton(myteam, arrTypes[i], 100, paths[i], 0, y, 200, 100);
             this.arrButtons.add(button);
         }
-        this.canvas.setupEventHandler(this);
+        if(this.canvas != null){
+            this.canvas.setupEventHandler(this);
+        }
     }
     
     @Override
@@ -82,7 +84,7 @@ public class ButtonController implements IGameEngine {
 
     @Override
     public void onRightClick(ICanvasDevice canvas, int x, int y) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -98,12 +100,12 @@ public class ButtonController implements IGameEngine {
 
     @Override
     public void onRegionSelected(ICanvasDevice canvas, int x1, int y1, int x2, int y2) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void onMouseMoved(ICanvasDevice canvas, int x, int y) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     protected Point genRandomLoc() {
