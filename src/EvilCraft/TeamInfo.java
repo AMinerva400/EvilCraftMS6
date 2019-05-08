@@ -17,19 +17,27 @@
  */
 package EvilCraft;
 
+import java.util.ArrayList;
+
 /**
- *
+ * Information of a team
  * @author csc190
  */
-public class Base extends StaticObject{
+public class TeamInfo {
+    protected SpriteInfo baseinfo;
+    protected ArrayList<SpriteInfo> arrSprites;
     
-<<<<<<< HEAD
-    public Base(Team team, int x, int y, int w, int h, String maptilename) {
-        super(team, x, y, w, h, maptilename);
-=======
-    public Base(Team team, int x, int y, int w, int h, String maptile) {
-        super(team, x, y, w, h, maptile, 100);
->>>>>>> origin/NEW_MODULE_C
+    public TeamInfo(SpriteInfo baseInfo, ArrayList<SpriteInfo> arrSpritesInfo){
+        this.baseinfo = baseInfo;
+        this.arrSprites= arrSpritesInfo;
+    }
+    
+    public SpriteInfo getBaseInfo(){
+        return this.baseinfo;
+    }
+    
+    public ArrayList<SpriteInfo> getSpritesInfo(){
+        return this.arrSprites;
     }
     
 }

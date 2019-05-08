@@ -43,11 +43,25 @@ public class Team {
         this.base = base;
     }
     
+<<<<<<< HEAD
+=======
+    private int getPrice(String sprite){
+        if(sprite.equals("TANK")){
+            return 500;
+        }else if(sprite.equals("INFANTRY")){
+            return 100;
+        }else if(sprite.equals("PLANE")){
+            return 1000;
+        }
+        return 100000000;
+    }
+>>>>>>> origin/NEW_MODULE_C
     /**
      * Return false if cannot afford. Otherwise, adjust the cash correspondingly
      * @param spriteName
      * @return 
      */
+<<<<<<< HEAD
     protected static String [] units = new String [] {ShopButton.INFANTRY, ShopButton.TANK, ShopButton.PLANE};
     protected int [] costs = new int [] {100, 500, 1000};
     public boolean PurchaseSprite(String spriteName){
@@ -60,6 +74,14 @@ public class Team {
             }
         }
         return false;
+=======
+    public boolean PurchaseSprite(String spriteName){
+        if(this.cash<this.getPrice(spriteName)){
+            return false;
+        }
+        this.cash-= this.getPrice(spriteName);
+        return true;
+>>>>>>> origin/NEW_MODULE_C
     }
     
     public int getCash(){
@@ -73,4 +95,22 @@ public class Team {
     public void addSprite(Sprite sprite){
         this.arrSprites.add(sprite);
     }
+<<<<<<< HEAD
+=======
+    
+    
+    public ArrayList<Sprite> getSprites(){       
+        return this.arrSprites;   
+    }
+    
+    protected TeamInfo getTeamInfo(){
+        SpriteInfo binfo = this.getBase().getSpriteInfo();
+        ArrayList<SpriteInfo> arrInfo = new ArrayList<SpriteInfo>();
+        for(int i=0; i<this.arrSprites.size(); i++){
+            arrInfo.add(this.arrSprites.get(i).getSpriteInfo());
+        }
+        TeamInfo ti = new TeamInfo(binfo, arrInfo);
+        return ti;
+    }
+>>>>>>> origin/NEW_MODULE_C
 }

@@ -18,18 +18,22 @@
 package EvilCraft;
 
 /**
- *
+ * Represent the information (read-only) of a sprite
  * @author csc190
  */
-public class Base extends StaticObject{
+public class SpriteInfo {
+    public enum TYPE {TANK, PLANE, INFANTRY, BULLET, SHELL, ROCKET, BASE, NONE};    
+    public TYPE type;
+    public int x, y;
+    public int lifepoints;
+    public String id;
     
-<<<<<<< HEAD
-    public Base(Team team, int x, int y, int w, int h, String maptilename) {
-        super(team, x, y, w, h, maptilename);
-=======
-    public Base(Team team, int x, int y, int w, int h, String maptile) {
-        super(team, x, y, w, h, maptile, 100);
->>>>>>> origin/NEW_MODULE_C
+    public SpriteInfo(TYPE type, int x, int y, int lifepoints, String id){
+        this.type = type;
+        this.x = x;
+        this.y = y;
+        this.lifepoints = lifepoints;
+        this.id = id;
     }
     
 }

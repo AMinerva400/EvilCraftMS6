@@ -55,13 +55,21 @@ public interface ICanvasDevice {
     public int getHeight();
     
     /**
+<<<<<<< HEAD
      * Get its x coordinate in logical map.
+=======
+     * Get the x coordinate (map coordinate) in map
+>>>>>>> origin/NEW_MODULE_C
      * @return 
      */
     public int getX();
     
     /**
+<<<<<<< HEAD
      * Get its y coordinate in logical map
+=======
+     * Get the y coordinate (map coordinate) in map
+>>>>>>> origin/NEW_MODULE_C
      * @return 
      */
     public int getY();

@@ -18,13 +18,20 @@
 package EvilCraft;
 
 import BridgePattern.ICanvasDevice;
+<<<<<<< HEAD
 import FXDevices.FXCanvasDevice;
+=======
+import java.util.LinkedList;
+import java.util.Queue;
+import javafx.util.Pair;
+>>>>>>> origin/NEW_MODULE_C
 
 /**
  * Map will be later used to provide routing information
  * @author csc190
  */
 public class Map {
+<<<<<<< HEAD
     // --- DATA MEMBERS -------
     protected String [][] arrTiles;
     
@@ -35,15 +42,44 @@ public class Map {
         arrTiles = new String [arrLines.length][];
         for(int i=0; i<arrTiles.length; i++){
             arrTiles[i] = arrLines[i].split(" ");
+=======
+    protected String [][] tiles;
+    protected int [][] map;
+    /**
+     * constructor
+     * @param mapPath
+     * @param canvas - can be used to readFile()
+     */
+    public Map(String mapPath, ICanvasDevice canvas){
+        String sall = canvas.readFile(mapPath);
+        String [] sLines = sall.split("\n");
+        this.tiles = new String[sLines.length][];
+        this.map = new int [sLines.length][];
+        for(int i=0; i<sLines.length; i++){
+            String [] words = sLines[i].split(" ");
+            this.tiles[i] = words;
+            this.map[i] = new int [words.length];
+            for(int j=0; j<words.length; j++){
+                this.map[i][j] = isObstacle(words[j])? 1: 0;
+            }
+>>>>>>> origin/NEW_MODULE_C
         }
     }
     
     public int getNumRows(){
+<<<<<<< HEAD
         return arrTiles.length;
     }
     
     public int getNumCols(){
         return arrTiles[0].length;
+=======
+        return this.tiles.length;
+    }
+    
+    public int getNumCols(){
+        return this.tiles[0].length;
+>>>>>>> origin/NEW_MODULE_C
     }
     
     /**
@@ -53,15 +89,25 @@ public class Map {
      * @return 
      */
     public String getMapTile(int row, int col){
+<<<<<<< HEAD
         return arrTiles[row][col];
     }
     
+=======
+        return this.tiles[row][col];
+    }
+    
+    protected static String [] obstacles = {"t1"};
+>>>>>>> origin/NEW_MODULE_C
     /**
      * Given the symbol tell if it's an obstacle for ground units.
      * @param maptile
      * @return 
      */
+<<<<<<< HEAD
     protected static final String obstacles [] = {"t1", "b1", "b2"}; 
+=======
+>>>>>>> origin/NEW_MODULE_C
     public boolean isObstacle(String maptile){
         for(String s: obstacles){
             if(s.equals(maptile)){
@@ -70,4 +116,66 @@ public class Map {
         }
         return false;
     }
+<<<<<<< HEAD
+=======
+    
+    /**
+     * Generate the 2d cost matrix based on the map, for pt as destination.
+     * @param pt
+     * @return 
+     */
+    public int [][] generateBFSMap(Point pt){
+        int rowTarget = pt.y/100;
+        int colTarget = pt.x/100; //assumption maptiles are 100x100
+         /**
+         * FAST Version. BFS Search (given all neighbor distance is 1). Idea:
+         * keep a queue of to be processed and keep track of the "visited" state
+         * of all cells - never process the same cell again.
+         */
+         int[][] res = new int[map.length][map[0].length]; //result to return
+        boolean[][] visited = new boolean[map.length][map[0].length]; //whether visited
+        for (int i = 0; i < map.length; i++) {
+            for (int j = 0; j < map[0].length; j++) {
+                res[i][j] = i == rowTarget && j == colTarget ? 0 : Integer.MAX_VALUE;
+                visited[i][j] = map[i][j] == 0 ? false : true; //don't visit blocks
+            }
+        }
+
+        Queue<Pair<Integer, Integer>> queue = new LinkedList();
+        queue.add(new Pair(rowTarget, colTarget));
+        visited[rowTarget][colTarget] = true;
+        while (!queue.isEmpty()) {
+            Pair<Integer, Integer> pair = queue.remove();
+            int x = pair.getKey();
+            int y = pair.getValue();
+
+            //update each of its neighbors
+            for (int xOffset = -1; xOffset <= 1; xOffset++) {
+                for (int yOffset = -1; yOffset <= 1; yOffset++) {
+                    int nbX = x + xOffset;
+                    int nbY = y + yOffset;
+                    if (nbX < 0 || nbY < 0 || nbX >= map.length || nbY >= map[0].length) {
+                        continue; //out of range
+                    }
+                    if (xOffset == 0 && yOffset == 0) {
+                        continue;
+                    }
+                    //NOW valid indexes
+                    if (map[nbX][nbY] == 0 && !visited[nbX][nbY]) {//not blocks
+                        visited[nbX][nbY] = true;
+                        //THE CHECK IS TO AVOID CUTTING CORNER OF DIAGNAL MOVEMENT!
+                        int newval = map[x][y+yOffset]==0 && map[x+xOffset][y]==0? res[x][y] + 1: res[x][y]+2; 
+                        res[nbX][nbY] = newval;
+                        queue.add(new Pair(nbX, nbY));
+
+                    }
+                }
+            }
+
+        }
+
+        return res;
+    
+    }
+>>>>>>> origin/NEW_MODULE_C
 }

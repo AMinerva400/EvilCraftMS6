@@ -22,6 +22,7 @@ import java.util.ArrayList;
 
 /**
  * Represent the object of Mouse. Display mouse shapes at different situation
+<<<<<<< HEAD
  *
  * @author csc190
  */
@@ -55,10 +56,41 @@ public class MouseSprite extends Sprite {
      * LeftClick: set the state to no units selected so that even Mouse Move, it
      * will not show "Move" or "Attack" mode
      *
+=======
+ * @author csc190
+ */
+public class MouseSprite extends Sprite{
+    // --- DATA MEMBERS ---
+    protected ICanvasDevice mainview;
+    protected ICanvasDevice minimap;
+    protected Map map;
+    // --- DATA OPERATIONS ---
+
+    /**
+     * MouseSprite needs the dimension of mainview, minimap, and map to translate coordinates.
+     * It also uses 
+     * @param mainview
+     * @param minimap
+     * @param map 
+     */
+    public MouseSprite(ICanvasDevice mainview, ICanvasDevice minimap, Map map) {
+        super(null, 0, 0, 0, 0, Integer.MAX_VALUE, 3, Integer.MAX_VALUE);
+        this.mainview = mainview;
+        this.minimap = minimap;
+        this.map = map;
+    }
+    
+    /***
+     * Handle many cases:
+     * (1) MouseMove (not close to boundary of canvas): when there are units selected: if arrSprites is empty or null, take the "Move" mode; otherwise "Attack Mode"
+     * (2) MouseMove (close to canvas): take the "Arrow" mode. Arrow direction depending on location in canvas
+     * (3) LeftClick: set the state to no units selected so that even Mouse Move, it will not show "Move" or "Attack" mode
+>>>>>>> origin/NEW_MODULE_C
      * @param eventType
      * @param canvas
      * @param x
      * @param y
+<<<<<<< HEAD
      * @param arrSprites
      */
     public void handleEvnet(MouseEvent eventType, ICanvasDevice canvas, int x, int y, ArrayList<Sprite> arrSprites) {
@@ -96,10 +128,17 @@ public class MouseSprite extends Sprite {
         } else {
 
         }
+=======
+     * @param arrSprites 
+     */
+    public void handleEvnet(MouseEvent eventType, ICanvasDevice canvas, int x, int y, ArrayList<Sprite> arrSprites){
+         throw new UnsupportedOperationException("not implemented yet");
+>>>>>>> origin/NEW_MODULE_C
     }
 
     /**
      * Return first enemy sprite which is in the previous MouseMoved event
+<<<<<<< HEAD
      *
      * @return
      */
@@ -142,18 +181,54 @@ public class MouseSprite extends Sprite {
         } else {
             pic = null;
         }
+=======
+     * @return 
+     */
+    public Sprite getAttackGoal(){
+        throw new UnsupportedOperationException("not implemented yet");
+    }
+    
+    @Override
+    public void update() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+>>>>>>> origin/NEW_MODULE_C
     }
 
     @Override
     public void drawOnMainView(ICanvasDevice mainview) {
+<<<<<<< HEAD
         if (pic != null) {
             mainview.drawImg(pic, x - 25, y - 25, 50, 50, 0);
         }
+=======
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+>>>>>>> origin/NEW_MODULE_C
     }
 
     @Override
     public void drawOnMiniMap(ICanvasDevice minimap) {
+<<<<<<< HEAD
         //do nothing
     }
 
+=======
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Point getNextMove() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean isFacing(Point pt) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void adjustBodyHeading(Point pt) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+>>>>>>> origin/NEW_MODULE_C
 }
