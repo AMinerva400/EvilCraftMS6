@@ -17,10 +17,7 @@
  */
 package EvilCraft;
 
-<<<<<<< HEAD
-=======
 import BridgePattern.ICanvasDevice;
->>>>>>> origin/NEW_MODULE_B
 import FXDevices.FXCanvasDevice;
 
 /**
@@ -32,13 +29,7 @@ public class Map {
     protected String [][] arrTiles;
     
     //--- OPERATIONS ----
-<<<<<<< HEAD
-    public Map(String mapPath){
-        FXCanvasDevice canvas = new FXCanvasDevice(null);
-=======
     public Map(String mapPath, ICanvasDevice canvas){
-        
->>>>>>> origin/NEW_MODULE_B
         String sAll = canvas.readFile(mapPath);
         String [] arrLines = sAll.split("\n");
         arrTiles = new String [arrLines.length][];
