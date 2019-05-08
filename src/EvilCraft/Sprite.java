@@ -18,70 +18,6 @@
 package EvilCraft;
 
 import BridgePattern.ICanvasDevice;
-<<<<<<< HEAD
-
-/**
- * Base class of all game objects
- * @author csc190
- */
-public abstract class Sprite {
-    //------- DATA MEMBERS ----------
-    protected int x, y, w, h;
-    protected Team team;
-    protected boolean bDead = false;
-    protected Sprite attackGoal = null;
-    protected Point navigationGoal = null;
-    
-    //------- OPERATIONS -------------
-    /**
-     * Set the long term navigation goal to pt
-     * @param pt 
-     */
-    public void setNavigationGoal(Point pt){
-        this.navigationGoal = pt;
-    }
-    
-    /**
-     * Set the PRIORITY attack goal. If sp is in the range, it should be attacked first.
-     * @param sp 
-     */
-    public void setAttackGoal(Sprite sp){
-        this.attackGoal = sp;
-    }
-    
-    public void setDead(){
-        this.bDead = true;
-    }
-    
-    public boolean isDead(){
-        return this.bDead;
-    }
-    
-    protected void setPos(int x, int y){
-        this.x = x;
-        this.y = y;
-    }
-    
-    public Sprite(Team team, int x, int y, int w, int h){
-        this.team = team;
-        this.x = x;
-        this.y = y;
-        this.w= w;
-        this.h = h;
-    }
-    
-    public Team getTeam() {
-        return this.team;
-    }
-    
-    public int getX(){
-        return this.x;
-    }
-    
-    public int getY(){
-        return this.y;
-    }
-=======
 import java.util.Random;
 
 /**
@@ -215,26 +151,10 @@ public abstract class Sprite {
     public int getBlockingScore() {
         return this.blocking_score;
     }
-
->>>>>>> origin/NEW_MODULE_C
     /**
      * update its own data attributes
      */
     public abstract void update();
-<<<<<<< HEAD
-    
-    /**
-     * Draw itself on main view, mostly like pictures
-     * @param mainview - canvas device
-     */
-    public abstract void drawOnMainView(ICanvasDevice mainview);
-    
-    /**
-     * Draw itself on mini map, most likely colored squares
-     * @param minimap - canvas device
-     */
-    public abstract void drawOnMiniMap(ICanvasDevice minimap);
-=======
 
     /**
      * Draw itself on main view, mostly like pictures
@@ -360,5 +280,4 @@ public abstract class Sprite {
         SpriteInfo si = new SpriteInfo(tp, this.getX(), this.getY(), this.getLifepoints(), this.id);
         return si;
     }
->>>>>>> origin/NEW_MODULE_C
 }

@@ -139,23 +139,22 @@ public class MainAppMS4 extends Application {
         FXSoundDevice fxSound = new FXSoundDevice();
         
         //4. Create Test Scenario Buttons
-<<<<<<< HEAD
         GameEngine g1 = new GameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);     
         GameEngine g2 = new GameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
         TestCase3GameEngine g3 = new TestCase3GameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
-         createButton("Test1", g1, vboxTestButtons);
+        createButton("Test1", g1, vboxTestButtons);
         createButton("Test2", g2, vboxTestButtons);
         createButton("Test3", g3, vboxTestButtons);
         ModuleBTestGameEngine g4 = new ModuleBTestGameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
         createButton("TestB", g4, vboxTestButtons);
-=======
-        TestC1GameEngine1 g1 = new TestC1GameEngine1("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
-        createButton("TestC1", g1, vboxTestButtons);
-        TestC2GameEngine g2 = new TestC2GameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
-        createButton("TestC2", g2, vboxTestButtons);
-        TestC3GameEngine g3 = new TestC3GameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
-        createButton("TestC3", g3, vboxTestButtons);
->>>>>>> origin/NEW_MODULE_C
+
+        TestC1GameEngine1 g5 = new TestC1GameEngine1("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
+        createButton("TestC1", g5, vboxTestButtons);
+        TestC2GameEngine g6 = new TestC2GameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
+        createButton("TestC2", g6, vboxTestButtons);
+        TestC3GameEngine g7 = new TestC3GameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
+        createButton("TestC3", g7, vboxTestButtons);
+
         
        
         

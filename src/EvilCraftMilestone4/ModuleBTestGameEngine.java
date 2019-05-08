@@ -20,14 +20,10 @@ package EvilCraftMilestone4;
 import BridgePattern.ICanvasDevice;
 import BridgePattern.ISoundDevice;
 import EvilCraft.GameEngine;
-<<<<<<< HEAD
 import EvilCraft.Infantry;
-import EvilCraft.Tank;
-=======
 import EvilCraft.Point;
 import EvilCraft.Tank;
 import EvilCraft.Team;
->>>>>>> origin/NEW_MODULE_C
 
 /**
  *
@@ -38,12 +34,10 @@ public class ModuleBTestGameEngine extends GameEngine{
     public ModuleBTestGameEngine(String mapPath, ICanvasDevice mainview, ICanvasDevice minimap, ICanvasDevice factoryPanel, ISoundDevice sound) {
         super(mapPath, mainview, minimap, factoryPanel, sound);
     }
-    
-<<<<<<< HEAD
+
     @Override
     public void init(){
         super.init();
-        
         Tank mytank1 = new Tank(this.getPlayerTeam(), 300, 300, 50, 50);
         Tank mytank2 = new Tank(this.getPlayerTeam(), 1800, 1800, 50, 50);
         this.addSprite(mytank1);
@@ -60,7 +54,5 @@ public class ModuleBTestGameEngine extends GameEngine{
         
         
     }
-=======
->>>>>>> origin/NEW_MODULE_C
     
 }
