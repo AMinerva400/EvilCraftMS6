@@ -223,26 +223,17 @@ public class FXCanvasDevice implements ICanvasDevice {
 
     @Override
     public void takeSnapshot(String imgname) {
-<<<<<<< HEAD
         WritableImage img = new WritableImage(this.getWidth(), this.getHeight());
         this.canvas.snapshot(new SnapshotParameters(), img);
         this.map.put(imgname, img);
-=======
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
->>>>>>> origin/NEW_MODULE_C
     }
 
     @Override
     public void drawRectangle(int x, int y, int w, int h, String color) {
-<<<<<<< HEAD
-        GraphicsContext gc = this.canvas.getGraphicsContext2D();
-        
+        GraphicsContext gc = this.canvas.getGraphicsContext2D();  
         Color cColor = Color.web(color);
         gc.setFill(cColor);
         gc.fillRect(x, y, w, h);
-=======
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
->>>>>>> origin/NEW_MODULE_C
     }
 
     @Override
