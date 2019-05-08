@@ -136,10 +136,6 @@ public class FXCanvasDevice implements ICanvasDevice {
     @Override
     public void setupEventHandler(IGameEngine gameEngine) {
         ICanvasDevice me = this;
-<<<<<<< HEAD
-=======
-        
->>>>>>> origin/NEW_MODULE_C
         //2. set up mouse drag event
         this.canvas.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
@@ -150,7 +146,6 @@ public class FXCanvasDevice implements ICanvasDevice {
                 bRightDown = event.isSecondaryButtonDown();
             }
         });
-<<<<<<< HEAD
         
         this.canvas.setOnMouseMoved(new EventHandler<MouseEvent>(){
              @Override
@@ -163,8 +158,6 @@ public class FXCanvasDevice implements ICanvasDevice {
                 }
             }
         });
-=======
->>>>>>> origin/NEW_MODULE_C
 
         this.canvas.setOnMouseReleased(new EventHandler<MouseEvent>() {
             @Override
@@ -193,10 +186,6 @@ public class FXCanvasDevice implements ICanvasDevice {
     public String readFile(String filepath) {
         int idx = filepath.indexOf("resources/");
         filepath = filepath.substring(idx+"resources/".length());
-<<<<<<< HEAD
-=======
-        
->>>>>>> origin/NEW_MODULE_C
         InputStream is = getClass().getClassLoader().getResourceAsStream(filepath);
         Scanner sc = new Scanner(is);
         String sContent = sc.useDelimiter("\\Z").next();
@@ -210,39 +199,26 @@ public class FXCanvasDevice implements ICanvasDevice {
 
     @Override
     public void setViewPort(int x, int y) {
-<<<<<<< HEAD
         //TEST USE REMOVE LATER ---------
         if(y==1000){
             int bp = 1;
         }
         //TEST USE REMOVE LATER -----------
-=======
->>>>>>> origin/NEW_MODULE_C
         this.viewportX = x;
         this.viewportY = y;
     }
 
-<<<<<<< HEAD
    @Override
     public void drawText(String msg, int x, int y, int fontsize) {
         GraphicsContext gc = this.canvas.getGraphicsContext2D();
         gc.setFont(new Font(fontsize));
         gc.strokeText(msg, x, y);
-=======
-    @Override
-    public void drawText(String msg, int x, int y, int fontsize) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
->>>>>>> origin/NEW_MODULE_C
     }
 
     @Override
     public void drawLine(int x1, int y1, int x2, int y2) {
-<<<<<<< HEAD
          GraphicsContext gc = this.canvas.getGraphicsContext2D();
          gc.strokeLine(x1, y1, x2, y2);
-=======
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
->>>>>>> origin/NEW_MODULE_C
     }
 
     @Override
