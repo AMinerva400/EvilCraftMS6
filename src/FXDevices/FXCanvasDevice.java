@@ -20,33 +20,17 @@ package FXDevices;
 import BridgePattern.ICanvasDevice;
 import BridgePattern.IGameEngine;
 import BridgePattern.IStopWatch;
-import java.io.File;
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/NEW_MODULE_C
 import java.io.InputStream;
-import java.net.URL;
-import java.util.Hashtable;
 import java.util.Scanner;
 import javafx.event.EventHandler;
-import javafx.scene.CacheHint;
-<<<<<<< HEAD
 import javafx.scene.text.Font;
 import javafx.scene.SnapshotParameters;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.image.Image;
 import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
-=======
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import javafx.scene.input.MouseEvent;
->>>>>>> origin/NEW_MODULE_C
 import javafx.scene.transform.Rotate;
 
 /**
@@ -81,13 +65,12 @@ public class FXCanvasDevice implements ICanvasDevice {
 
     public FXCanvasDevice(Canvas canvas) {
         this.canvas = canvas;
-<<<<<<< HEAD
+
         if (canvas != null) {
             canvas.setCache(false);
         }
-=======
+
         canvas.setCache(false);
->>>>>>> origin/NEW_MODULE_C
         //canvas.setCacheHint(CacheHint.SPEED);
 
     }
@@ -114,11 +97,6 @@ public class FXCanvasDevice implements ICanvasDevice {
             int bp = 1; //should exception
         }
         this.nPixsDrawn += xDiff*yDiff;
-        
-<<<<<<< HEAD
-=======
-        
->>>>>>> origin/NEW_MODULE_C
         //2. Real drawing
         Image img = getImage(imgPath);
         GraphicsContext gc = mygc != null ? mygc : this.canvas.getGraphicsContext2D();
