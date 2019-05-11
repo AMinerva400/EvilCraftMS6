@@ -128,7 +128,7 @@ public class ButtonController implements IGameEngine{
         }
         Point pt = this.genRandomLoc();
         Tank tank = new Tank(this.myteam, pt.x, pt.y, 50, 50);
-        GameEngine.getInstance().addSprite(tank);
+        GameEngine.getInstance().addSprite(tank); // conflict needs to be resolved in game engine
         this.myteam.addSprite(tank);
         return true;
     }
@@ -142,7 +142,7 @@ public class ButtonController implements IGameEngine{
         }
         Point pt = this.genRandomLoc();
         Airplane plane = new Airplane(this.myteam, pt.x, pt.y, 50, 50);
-        GameEngine.getInstance().addSprite(plane);
+        GameEngine.getInstance().addSprite(plane); 
         this.myteam.addSprite(plane);
         return true;
     }
@@ -159,31 +159,5 @@ public class ButtonController implements IGameEngine{
         GameEngine.getInstance().addSprite(soldier);
         this.myteam.addSprite(soldier);
         return true;
-    }
-=======
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-   
-    /**
-     * return true if there's money for it
-     */
-    public boolean spawnTank(){
-        throw new UnsupportedOperationException("not implemented yet");
-    }
-    
-    /**
-     * return true if there's money for it
-     */
-    public boolean spawnAircraft(){
-        throw new UnsupportedOperationException("not implemented yet");
-    }
-    
-    /**
-     * return true if there's money for it
-     */
-    public boolean spawnInfantry(){
-        throw new UnsupportedOperationException("not implemented yet");
-    }
-    
->>>>>>> origin/NEW_MODULE_D
+    } 
 }
