@@ -89,16 +89,12 @@ public class Airplane extends ArmyUnit {
         
         
     }
-
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
     public void resetCoolRate() {
         this.setCoolTicksNeeded(6000);
     }
 
-    @Override
     public SpriteInfo getFiringGoal() {
         //1. get the enemy in range
         ArrayList<Sprite> ar = this.getEnemyInRange(50);
@@ -141,5 +137,4 @@ public class Airplane extends ArmyUnit {
         ge.addSprite(shell);
     }
 
->>>>>>> origin/NEW_MODULE_D
 }
