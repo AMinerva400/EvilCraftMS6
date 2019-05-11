@@ -369,7 +369,7 @@ public class GameEngine implements IGameEngine{
     public boolean approveNextMove(Sprite proposer, Point lefttop_corner, int width, int height){
         ArrayList<Sprite> arr = this.getArrSprites(lefttop_corner, new Point(lefttop_corner.x+width, lefttop_corner.y+height), null);
         for(Sprite sp: arr){
-            if(sp!=proposer){
+            if(/*sp!=proposer*/!sp.getID().equals(proposer.getID())){
                 if(sp.getAltitude()==proposer.getAltitude()){
                     if(sp.getBlockingScore()>=proposer.getBlockingScore()){
                         return false;

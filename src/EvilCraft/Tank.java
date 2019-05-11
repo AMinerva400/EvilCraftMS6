@@ -40,7 +40,7 @@ public class Tank extends Sprite {
 
     @Override
     public void update() {
-        int x = getX();
+        /*int x = getX();
         int y = getY();
         if(this.navigationGoal!=null){
             if(this.getX()<navigationGoal.x){
@@ -54,7 +54,7 @@ public class Tank extends Sprite {
                 y--;
             }
         }
-        this.setPos(x, y);
+        this.setPos(x, y);*/
     }
 
     @Override
