@@ -69,11 +69,7 @@ public class Bullet extends Projectile {
 
     @Override
     public void drawOnMainView(ICanvasDevice mainview) {
-<<<<<<< HEAD
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-=======
         super.drawOnMainView(mainview);
->>>>>>> origin/NEW_MODULE_D
     }
 
     @Override
@@ -95,9 +91,4 @@ public class Bullet extends Projectile {
     public void adjustBodyHeading(Point pt) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-<<<<<<< HEAD
-    
-=======
-
->>>>>>> origin/NEW_MODULE_D
 }
