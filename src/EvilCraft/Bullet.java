@@ -47,15 +47,12 @@ public class Bullet extends Projectile {
      * @param altitude 
      */
     public Bullet(Team team, int x, int y, int w, int h, int lifepoints, int altitude) {
-        super(team, x, y, w, h, lifepoints, altitude, 0);
-=======
-     * @param altitude
-     */
+        
+    }
     public Bullet(Team team, int x, int y, int w, int h, int lifepoints, int altitude, int destx, int desty) {
         super(team, x, y, w, h, lifepoints, altitude, 0, destx, desty);
         this.setTravel(15);
         this.pic = "resources/images/common/bullet.png";
->>>>>>> origin/NEW_MODULE_D
     }
 
     @Override
