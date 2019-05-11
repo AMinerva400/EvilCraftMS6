@@ -71,7 +71,6 @@ public class Map {
         return this.tiles[row][col];
 
     }
-    
     /**
      * Given the symbol tell if it's an obstacle for ground units.
      * @param maptile
