@@ -49,7 +49,7 @@ public abstract class Projectile extends Sprite{
         travel_tick++;
     }
     public Projectile(Team team, int x, int y, int w, int h, int lifepoints, int altitude, int block_score, int destx, int desty) {
-        super(team, x, y, w, h, lifepoints, altitude, block_score);
+        super(team, this.getX(), this.getY(), this.getW(), this.getH(), lifepoints, altitude, block_score);
         this.destx = destx;
         this.desty = desty;
     }
