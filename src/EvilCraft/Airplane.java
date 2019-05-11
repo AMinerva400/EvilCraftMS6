@@ -75,27 +75,21 @@ public class Airplane extends ArmyUnit {
         }else{
             return new Point(this.getX(), this.getY());
         }
-=======
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
->>>>>>> origin/NEW_MODULE_D
     }
 
     @Override
     public boolean isFacing(Point pt) {
-<<<<<<< HEAD
         return true;
-=======
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
->>>>>>> origin/NEW_MODULE_D
+
     }
 
     @Override
     public void adjustBodyHeading(Point pt) {
-<<<<<<< HEAD
+
         
         
     }
-=======
+
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
