@@ -16,25 +16,18 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 package EvilCraft;
-
+//Conflicts solved by Akash
 import BridgePattern.ICanvasDevice;
 import BridgePattern.IGameEngine;
 import java.util.ArrayList;
-<<<<<<< HEAD
 import java.util.Random;
 import javafx.scene.canvas.GraphicsContext;
-=======
->>>>>>> origin/NEW_MODULE_D
 
 /**
  * Represents the Palette of buttons for creating units
  * @author csc190
  */
-<<<<<<< HEAD
-public class ButtonController implements IGameEngine {
-=======
 public class ButtonController implements IGameEngine{
->>>>>>> origin/NEW_MODULE_D
     //---- DATA MEMBERS ------------------
     protected ArrayList<ShopButton> arrButtons;
     protected Team myteam;
@@ -47,7 +40,6 @@ public class ButtonController implements IGameEngine{
      * @param canvas 
      */
     public ButtonController(Team team, ICanvasDevice canvas){
-<<<<<<< HEAD
         this.myteam = team;
         this.canvas = canvas;
         String [] arrTypes = new String [] {ShopButton.INFANTRY, ShopButton.TANK, ShopButton.PLANE};
@@ -66,18 +58,10 @@ public class ButtonController implements IGameEngine{
         if(this.canvas != null){
             this.canvas.setupEventHandler(this);
         }
-=======
-        throw new UnsupportedOperationException("not implemented yet!");
->>>>>>> origin/NEW_MODULE_D
     }
     
     @Override
     public void init() {
-<<<<<<< HEAD
-
-=======
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
->>>>>>> origin/NEW_MODULE_D
     }
 
     /**
@@ -85,7 +69,6 @@ public class ButtonController implements IGameEngine{
      */
     @Override
     public void onTick() {
-<<<<<<< HEAD
         //1. draw the bank account
         String sCash = "$" + this.myteam.getCash();
         this.canvas.drawText(sCash, 10, 0, 20);
@@ -96,18 +79,11 @@ public class ButtonController implements IGameEngine{
             btn.update();
             btn.draw(canvas);
         }
-=======
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
->>>>>>> origin/NEW_MODULE_D
     }
 
     @Override
     public void onRightClick(ICanvasDevice canvas, int x, int y) {
-<<<<<<< HEAD
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-=======
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
->>>>>>> origin/NEW_MODULE_D
+
     }
 
     @Override
