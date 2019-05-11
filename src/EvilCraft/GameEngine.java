@@ -94,15 +94,9 @@ public class GameEngine implements IGameEngine {
         this.loadGameMap(mapPath);
     }
     
-    public static GameEngine getInstance(){
-=======
-
-        ge_instance = this;
-    }
 
     public static GameEngine getInstance() {
 
->>>>>>> origin/NEW_MODULE_D
         return ge_instance;
     }
 
