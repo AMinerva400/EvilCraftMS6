@@ -16,6 +16,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 package EvilCraft;
+//Conflicts solved by Akash
 
 import BridgePattern.ICanvasDevice;
 import FXDevices.FXCanvasDevice;
@@ -57,17 +58,6 @@ public class Map {
     
     public int getNumCols(){
         return this.tiles[0].length;
-=======
-        throw new UnsupportedOperationException("not implemented yet!");
-    }
-    
-    public int getNumRows(){
-        throw new UnsupportedOperationException("not implemented yet!");
-    }
-    
-    public int getNumCols(){
-        throw new UnsupportedOperationException("not implemented yet!");
->>>>>>> origin/NEW_MODULE_D
     }
     
     /**
@@ -77,11 +67,9 @@ public class Map {
      * @return 
      */
     public String getMapTile(int row, int col){
-<<<<<<< HEAD
+
         return this.tiles[row][col];
-=======
-        throw new UnsupportedOperationException("not implemented yet!");
->>>>>>> origin/NEW_MODULE_D
+
     }
     
     /**
@@ -89,7 +77,6 @@ public class Map {
      * @param maptile
      * @return 
      */
-<<<<<<< HEAD
     protected static final String obstacles [] = {"t1", "b1", "b2"};
     public boolean isObstacle(String maptile){
         for(String s: obstacles){
@@ -99,20 +86,12 @@ public class Map {
         }
         return false;
     }
-
-=======
-    public boolean isObstacle(String maptile){
-        throw new UnsupportedOperationException("not implemented yet!");
-    }
-    
->>>>>>> origin/NEW_MODULE_D
     /**
      * Generate the 2d cost matrix based on the map, for pt as destination.
      * @param pt
      * @return 
      */
     public int [][] generateBFSMap(Point pt){
-<<<<<<< HEAD
         int rowTarget = pt.y/100;
         int colTarget = pt.x/100; //assumption maptiles are 100x100
          /**
@@ -163,9 +142,5 @@ public class Map {
         }
 
         return res;
-    
-=======
-        throw new UnsupportedOperationException("not implemented yet");
->>>>>>> origin/NEW_MODULE_D
     }
 }
