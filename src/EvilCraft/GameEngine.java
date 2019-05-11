@@ -181,7 +181,6 @@ public class GameEngine implements IGameEngine {
 */
     @Override
     public void onRightClick(ICanvasDevice canvas, int x, int y) {
-<<<<<<< HEAD
         Point pt = this.getGlobalCoordinates(canvas, x, y, map);
         Point pt1 = new Point(pt.x-25, pt.y-25);
         Point pt2 = new Point(pt.x+25, pt.y+25);
@@ -194,23 +193,17 @@ public class GameEngine implements IGameEngine {
             }
         }
         this.mouseSprite.handleEvent(MouseEvent.RightClick, canvas, x, y, this.arrSelected);        
-=======
 
->>>>>>> origin/NEW_MODULE_D
     }
 
     @Override
     public void onLeftClick(ICanvasDevice canvas, int x, int y) {
-<<<<<<< HEAD
         this.arrSelected = null;
         if(canvas==this.minimap){
             Point pt = this.getGlobalCoordinates(canvas, x, y, map);
             this.mainview.setViewPort(pt.x-mainview.getWidth()/2, pt.y-mainview.getHeight()/2);
         }
         this.mouseSprite.handleEvent(MouseEvent.LeftClick, canvas, x, y, null);
-=======
-
->>>>>>> origin/NEW_MODULE_D
     }
 
     @Override
