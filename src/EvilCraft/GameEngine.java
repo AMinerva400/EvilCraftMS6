@@ -656,7 +656,7 @@ public class GameEngine implements IGameEngine {
         }
 
     }
-
+/*
     protected int getDamageRange(Projectile p) {
         if (p instanceof Bullet) {
             return 20;
@@ -667,7 +667,7 @@ public class GameEngine implements IGameEngine {
         } else {
             return 0;
         }
-    }
+    }*/
 
     protected int getDamagePoints(Projectile p) {
         if (p instanceof Bullet) {
