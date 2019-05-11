@@ -44,6 +44,4 @@ public class Point {
         hash = 41 * hash + this.y;
         return hash;
     }
-=======
->>>>>>> origin/NEW_MODULE_D
 }
