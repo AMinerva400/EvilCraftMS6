@@ -604,23 +604,12 @@ public class GameEngine implements IGameEngine {
         return cost;
     }
     
-=======
-     * @return
-     */
-    public boolean approveNextMove(Sprite proposer, Point lefttop_corner, int width, int height) {
-        throw new UnsupportedOperationException("not implemented yet");
-    }
 
     /**
      * The int[][] cost matrix is generated in onRightClick() and saved into a
      * hashmap. Now simply retrieve it from hashmap
      *
      * @param dest
-     * @return
-     */
-    public int[][] getBFSMap(Point dest) {
-        throw new UnsupportedOperationException("not implemented yet");
-    }
 
     /**
      * Check sequence diagram (2) in D1 (1) check if projectile has requested
