@@ -208,7 +208,6 @@ public class GameEngine implements IGameEngine {
 
     @Override
     public void onRegionSelected(ICanvasDevice canvas, int x1, int y1, int x2, int y2) {
-<<<<<<< HEAD
         Point pt1 = this.getGlobalCoordinates(canvas, x1, y1, map);
         Point pt2 = this.getGlobalCoordinates(canvas, x2, y2, map);
         this.arrSelected = this.getArrSprites(pt1, pt2, this.getPlayerTeam());
@@ -243,7 +242,6 @@ public class GameEngine implements IGameEngine {
     /**
      * Return the left top corner of a free space close to (x,y)
      * The requested free space's dimension is (w,h)
-=======
 
     }
 
@@ -253,9 +251,6 @@ public class GameEngine implements IGameEngine {
      *
      * @param mapPath
      */
-    public void loadGameMap(String mapPath) {
-        throw new UnsupportedOperationException("not implemented yet!");
-    }
 
     /**
      * Return the left top corner of a free space close to (x,y) The requested
