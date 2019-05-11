@@ -16,6 +16,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 package EvilCraft;
+//Conflicts solved by Akash
 
 /**
  * Simply represents (x,y)
@@ -27,7 +28,6 @@ public class Point {
         this.x = x;
         this.y = y;
     }
-<<<<<<< HEAD
     @Override
     public boolean equals(Object others){
         if(!(others instanceof Point)){
