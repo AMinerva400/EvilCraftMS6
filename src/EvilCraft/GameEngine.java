@@ -428,9 +428,6 @@ public class GameEngine implements IGameEngine {
 =======
      * @return
      */
-    public Point getFreeSpace(int x, int y, int w, int h) {
-        throw new UnsupportedOperationException("not implemented yet!");
-    }
 
     public void addSprite(Sprite s) {
         this.arrSprites.add(s);
@@ -683,6 +680,4 @@ public class GameEngine implements IGameEngine {
             return 0;
         }
     }
-
->>>>>>> origin/NEW_MODULE_D
 }
