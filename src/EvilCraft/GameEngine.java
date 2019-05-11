@@ -22,22 +22,15 @@ import BridgePattern.ICanvasDevice;
 import BridgePattern.IGameEngine;
 import BridgePattern.ISoundDevice;
 import java.util.ArrayList;
-<<<<<<< HEAD
 import java.util.HashMap;
 import java.util.Hashtable;
-=======
->>>>>>> origin/NEW_MODULE_D
 
 /**
  *
  * @author csc190
  */
-<<<<<<< HEAD
-public class GameEngine implements IGameEngine{
-=======
 public class GameEngine implements IGameEngine {
 
->>>>>>> origin/NEW_MODULE_D
     // -------------- DATA MEBERS ------------------
     protected String mapPath;
     protected Map map;
@@ -49,7 +42,6 @@ public class GameEngine implements IGameEngine {
     protected ArrayList<Sprite> arrSprites = new ArrayList<Sprite>(); //moving objects
     protected ArrayList<StaticObject> arrMapTiles = new ArrayList<StaticObject>();
     protected ArrayList<Team> arrTeams = new ArrayList<Team>();
-<<<<<<< HEAD
     protected ButtonController humanController;
     protected ArrayList<Sprite> arrSelected = null;
     protected MouseSprite mouseSprite = null;
@@ -74,21 +66,15 @@ public class GameEngine implements IGameEngine {
      * @param mainview
      * @param minimap
      * @param factoryPanel
-<<<<<<< HEAD
      * @param sound 
      */
-    public GameEngine(String mapPath, ICanvasDevice mainview, ICanvasDevice minimap, ICanvasDevice factoryPanel, ISoundDevice sound){
-=======
-     * @param sound
-     */
     public GameEngine(String mapPath, ICanvasDevice mainview, ICanvasDevice minimap, ICanvasDevice factoryPanel, ISoundDevice sound) {
->>>>>>> origin/NEW_MODULE_D
+
         this.mapPath = mapPath;
         this.mainview = mainview;
         this.minimap = minimap;
         this.buttonCanvas = factoryPanel;
         this.soundDevice = soundDevice;
-<<<<<<< HEAD
         this.map = new Map(this.mapPath, this.mainview);
         this.mouseSprite = new MouseSprite(this.mainview, this.minimap, this.map);
         //TEMPORARY
