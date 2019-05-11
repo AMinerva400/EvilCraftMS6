@@ -18,7 +18,7 @@
 package EvilCraft;
 
 import BridgePattern.ICanvasDevice;
-
+//Conflicts solved by Akash
 /**
  *
  * @author csc190
