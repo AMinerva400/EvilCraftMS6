@@ -139,6 +139,7 @@ public class MainAppMS4 extends Application {
         FXSoundDevice fxSound = new FXSoundDevice();
         
         //4. Create Test Scenario Buttons
+<<<<<<< HEAD
         /*GameEngine g1 = new GameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);     
         GameEngine g2 = new GameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
         TestCase3GameEngine g3 = new TestCase3GameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
@@ -155,6 +156,16 @@ public class MainAppMS4 extends Application {
         TestC3GameEngine g7 = new TestC3GameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
         createButton("TestC3", g7, vboxTestButtons);
 
+=======
+        TestD1GameEngine g1 = new TestD1GameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
+        createButton("TestDamageCoolRate", g1, vboxTestButtons);
+        
+        TestD2GameEngine1 g2 = new TestD2GameEngine1("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
+        createButton("TestRange", g2, vboxTestButtons);
+        
+         TestD3GameEngine g3 = new TestD3GameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
+        createButton("TestNavigateAndShoot", g3, vboxTestButtons);
+>>>>>>> origin/NEW_MODULE_D
         
        
         
@@ -163,7 +174,11 @@ public class MainAppMS4 extends Application {
         HBox hbox = new HBox();
         hbox.getChildren().add(canvasMainView);
         hbox.getChildren().add(vboxRight);
+<<<<<<< HEAD
         hbox.getChildren().add(vboxTestButtons);  
+=======
+        hbox.getChildren().add(vboxTestButtons);
+>>>>>>> origin/NEW_MODULE_D
         Scene scene = new Scene(hbox, 1400, 1000);
 
         primaryStage.setTitle("EvilCraft Milestone 4");
