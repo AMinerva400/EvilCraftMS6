@@ -16,15 +16,8 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 package BridgePattern;
-<<<<<<< HEAD
 import EvilCraft.Map;
 import EvilCraft.Point;
-=======
-
-import EvilCraft.Map;
-import EvilCraft.Point;
-
->>>>>>> origin/NEW_MODULE_D
 /**
  * An abstract game engine. It should support several event handler function for
  * the events fired by the canvas devices
@@ -60,13 +53,9 @@ public interface IGameEngine {
      * @param y - y coordinate of the event IN the canvas device
      */
     public void onLeftClick(ICanvasDevice canvas, int x, int y);
-    
-<<<<<<< HEAD
      /** Handles the mouse move event
-=======
     /**
      * Handles the mouse move event
->>>>>>> origin/NEW_MODULE_D
      * @param canvas - the canvas which generates the event
      * @param x - x coordinate IN the canvas device
      * @param y - y coordinate IN the canvas device
@@ -84,9 +73,5 @@ public interface IGameEngine {
      * @param y2 - y coordinate of the DRAG_END event IN the canvas device
      */
     public abstract void onRegionSelected(ICanvasDevice canvas, int x1, int y1, int x2, int y2);
-<<<<<<< HEAD
-=======
-    
-    
->>>>>>> origin/NEW_MODULE_D
+
 }

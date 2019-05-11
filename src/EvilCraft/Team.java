@@ -42,7 +42,6 @@ public class Team {
     public void setBase(Base base){
         this.base = base;
     }
-<<<<<<< HEAD
 
     private int getPrice(String sprite){
         if(sprite.equals("TANK")){
@@ -54,15 +53,11 @@ public class Team {
         }
         return 100000000;
     }
-=======
-    
->>>>>>> origin/NEW_MODULE_D
     /**
      * Return false if cannot afford. Otherwise, adjust the cash correspondingly
      * @param spriteName
      * @return 
      */
-<<<<<<< HEAD
     protected static String [] units = new String [] {ShopButton.INFANTRY, ShopButton.TANK, ShopButton.PLANE};
     protected int [] costs = new int [] {100, 500, 1000};
     public boolean PurchaseSprite(String spriteName){
@@ -75,10 +70,6 @@ public class Team {
             }
         }
         return false;
-=======
-    public boolean PurchaseSprite(String spriteName){
-        throw new UnsupportedOperationException("not implemented yet!");
->>>>>>> origin/NEW_MODULE_D
     }
     
     public int getCash(){
@@ -91,7 +82,6 @@ public class Team {
     
     public void addSprite(Sprite sprite){
         this.arrSprites.add(sprite);
-<<<<<<< HEAD
     }    
     public ArrayList<Sprite> getSprites(){       
         return this.arrSprites;   
@@ -105,12 +95,5 @@ public class Team {
         }
         TeamInfo ti = new TeamInfo(binfo, arrInfo);
         return ti;
-=======
-    }
-    
-    
-    public ArrayList<Sprite> getSprites(){       
-        return this.arrSprites;
->>>>>>> origin/NEW_MODULE_D
     }
 }
