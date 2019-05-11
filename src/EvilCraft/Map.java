@@ -18,31 +18,25 @@
 package EvilCraft;
 
 import BridgePattern.ICanvasDevice;
-<<<<<<< HEAD
 import FXDevices.FXCanvasDevice;
 import java.util.LinkedList;
 import java.util.Queue;
 import javafx.util.Pair;
-=======
->>>>>>> origin/NEW_MODULE_D
 
 /**
  * Map will be later used to provide routing information
  * @author csc190
  */
 public class Map {
-<<<<<<< HEAD
     protected String [][] tiles;
     protected int [][] map;
-=======
->>>>>>> origin/NEW_MODULE_D
+
     /**
      * constructor
      * @param mapPath
      * @param canvas - can be used to readFile()
      */
     public Map(String mapPath, ICanvasDevice canvas){
-<<<<<<< HEAD
         String sall = canvas.readFile(mapPath);
         String [] sLines = sall.split("\n");
         this.tiles = new String[sLines.length][];
