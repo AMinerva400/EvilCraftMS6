@@ -103,7 +103,6 @@ public class GameEngine implements IGameEngine {
     @Override
     public void init() {
         //DON'T KILL THE following line
-<<<<<<< HEAD
         //set up the ButtonController        
         this.mainview.setupEventHandler(this);
         this.minimap.setupEventHandler(this);
@@ -145,7 +144,6 @@ public class GameEngine implements IGameEngine {
         this.mouseSprite.update();
         this.mouseSprite.drawOnMainView(mainview);
         this.ai.update();
-=======
         ge_instance = this;
         Team t1 = new Team(50000, "Player");
         Team t2 = new Team(50000, "Computer");
@@ -153,7 +151,7 @@ public class GameEngine implements IGameEngine {
         this.arrTeams.add(t2);
         //DON'T KILL THE ABOVE LINE
     }
-
+/*
     @Override
     public void onTick() {
         this.mainview.clear();
@@ -179,9 +177,8 @@ public class GameEngine implements IGameEngine {
             this.arrSprites.remove(sp);
         }
 
->>>>>>> origin/NEW_MODULE_D
     }
-
+*/
     @Override
     public void onRightClick(ICanvasDevice canvas, int x, int y) {
 <<<<<<< HEAD
