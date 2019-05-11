@@ -25,6 +25,8 @@ import BridgePattern.ICanvasDevice;
  */
 public class Bomb extends Projectile{
 
+    private final String pic;
+
     public Bomb(Team team, int x, int y, int w, int h, int lifepoints, int altitude, int block_score, int destx, int desty) {
         super(team, x, y, w, h, lifepoints, altitude, block_score, destx, desty);
         this.setTravel(10);
