@@ -83,7 +83,6 @@ public class ButtonController implements IGameEngine{
 
     @Override
     public void onRightClick(ICanvasDevice canvas, int x, int y) {
-
     }
 
     @Override
