@@ -296,19 +296,6 @@ public abstract class Sprite {
         }
         SpriteInfo si = new SpriteInfo(tp, this.getX(), this.getY(), this.getLifepoints(), this.id);
         return si;
-    
-    /**
-     * Get next move (for next tick), seek approval from game engine, and turn body if necessary.
-     * NOTE this implementation only addresses  C3.2 BUT NOT C3.3
-     * You got to check C3.3.2 Sequence diagram, which shows how to
-     * decide next move based on navigation map.
-     */
-    final protected void setNextMove(){      
-        Point pt = this.getNextMove(); //virtual function
-        GameEngine ge = GameEngine.getInstance();
-        if(ge.approveNextMove(this, pt, this.w, this.h)){
-            this.setPos(pt.x, pt.y);
-        }
     }
     
     protected int idx_explode=-1;
