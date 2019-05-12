@@ -125,7 +125,7 @@ public class Infantry extends ArmyUnit {
 
     @Override
     public void fireAt(Point pt) {
-         Bullet shell = new Bullet(this.team, this.getX()+this.getW()/2, this.getY() + this.getH()/2, 5, 5, 100000, 3, pt.x, pt.y);
+        Bullet shell = new Bullet(this.team, this.getX()+this.getW()/2, this.getY() + this.getH()/2, 5, 5, 100000, 3, pt.x, pt.y);
         GameEngine ge = GameEngine.getInstance();
         ge.addSprite(shell);
     }

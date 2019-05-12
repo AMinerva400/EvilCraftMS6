@@ -24,17 +24,8 @@ import BridgePattern.ICanvasDevice;
  * @author csc190
  */
 public class StaticObject extends Sprite{
-<<<<<<< HEAD
     protected String picname;
     protected String maptileName;
-
-    
-    public StaticObject(Team team, int x, int y, int w, int h, String maptileName, int lifepoints) {
-        super(team, x, y, w, h, lifepoints, 0, 0);
-        this.maptileName = maptileName;
-        this.picname = "resources/images/common/" + maptileName + ".png";
-=======
-    protected String pic;
 
     /***
      * Using maptile e.g., "tree", can be used to build the picture path
@@ -45,38 +36,27 @@ public class StaticObject extends Sprite{
      * @param h
      * @param maptile 
      */
-    public StaticObject(Team team, int x, int y, int w, int h, String maptile, int lifepoints) {
+    public StaticObject(Team team, int x, int y, int w, int h, String maptileName, int lifepoints) {
         super(team, x, y, w, h, lifepoints, 0, 0);
-        pic = "resources/images/common/" + maptile + ".png";
->>>>>>> origin/NEW_MODULE_D
+        this.maptileName = maptileName;
+        this.picname = "resources/images/common/" + maptileName + ".png";
     }
 
     @Override
     public void update() {
-<<<<<<< HEAD
-=======
         this.explode_ifenabled();
->>>>>>> origin/NEW_MODULE_D
     }
 
     @Override
     public void drawOnMainView(ICanvasDevice mainview) {
-<<<<<<< HEAD
         mainview.drawImg(picname, this.getX(), this.getY(), this.getW(), this.getH(), 0);
-=======
-        mainview.drawImg(this.pic,this.getX(), this.getY(), this.getW(), this.getH(), 0);
->>>>>>> origin/NEW_MODULE_D
     }
 
     @Override
     public void drawOnMiniMap(ICanvasDevice minimap) {
-<<<<<<< HEAD
         int mw = GameEngine.getInstance().map.getNumRows()*100;
         int vw = 200;
         minimap.drawImg(picname, getX()*200/mw, getY()*200/mw, getW()*200/mw+1, getH()*200/mw+1, 0);
-=======
-        //
->>>>>>> origin/NEW_MODULE_D
     }
 
     @Override
@@ -93,8 +73,4 @@ public class StaticObject extends Sprite{
     public void adjustBodyHeading(Point pt) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-<<<<<<< HEAD
-=======
-    
->>>>>>> origin/NEW_MODULE_D
 }
