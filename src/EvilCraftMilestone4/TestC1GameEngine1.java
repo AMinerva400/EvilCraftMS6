@@ -47,7 +47,7 @@ public class TestC1GameEngine1 extends GameEngine {
             int ny = 100 + rand.nextInt(500);
             Tank t1 = new Tank(myteam, nx, ny, 50, 50);
             myteam.addSprite(t1);
-            //t1.setNavigationGoal(new Point(100, 500));
+            t1.setNavigationGoal(new Point(100, 500));
             this.addSprite(t1);
         }
         

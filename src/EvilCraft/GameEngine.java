@@ -189,7 +189,7 @@ public class GameEngine implements IGameEngine {
         if(this.arrSelected!=null && this.arrSelected.size()>0){
             for(Sprite sprite: this.arrSelected){
                 sprite.setNavigationGoal(pt);
-                sprite.setAttackGoal(target.getSpriteInfo());
+                if(target != null) sprite.setAttackGoal(target.getSpriteInfo());
             }
         }
         this.mouseSprite.handleEvent(MouseEvent.RightClick, canvas, x, y, this.arrSelected);        
