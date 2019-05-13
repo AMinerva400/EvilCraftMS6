@@ -82,9 +82,10 @@ public class Team {
     
     public void addSprite(Sprite sprite){
         this.arrSprites.add(sprite);
-    }    
+    }
+    
     public ArrayList<Sprite> getSprites(){       
-        return this.arrSprites;   
+        return this.arrSprites;
     }
     
     protected TeamInfo getTeamInfo(){

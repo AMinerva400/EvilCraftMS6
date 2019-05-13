@@ -122,9 +122,16 @@ public class GameEngine implements IGameEngine {
         Team t2 = new Team(50000, "Computer");
         this.arrTeams.add(t1);
         this.arrTeams.add(t2);*/
-        
-        this.arrTeams.add(new Team(50000, "FIRST_AI"));
-        this.arrTeams.add(new Team(50000, "SECOND_AI"));
+        Team t1 = new Team(50000, "FIRST_AI");
+        Team t2 = new Team(50000, "SECOND_AI");
+        this.arrTeams.add(t1);
+        this.arrTeams.add(t2);
+        Base b1 = new Base(t1, 100, 100, 100, 100, "b1");
+        Base b2 = new Base(t2, 700, 700, 100, 100, "b2");
+        this.addSprite(b1);
+        this.addSprite(b2);
+        this.getPlayerTeam().setBase(b1);
+        this.getAITeam().setBase(b2);
         this.humanController = new ButtonController(this.getPlayerTeam(), null);
         this.aiButtonController = new ButtonController(this.getAITeam(), null);
         this.firstAI = new AI(this.getPlayerTeam(), this.humanController);
