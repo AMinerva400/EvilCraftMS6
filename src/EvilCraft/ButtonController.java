@@ -154,7 +154,7 @@ public class ButtonController implements IGameEngine{
             return false;
         }
         Point pt = this.genRandomLoc();
-        Infantry soldier = new Infantry(this.myteam, pt.x, pt.y, 25, 25);
+        Infantry soldier = new Infantry(this.myteam, pt.x, pt.y, 50, 50);
         GameEngine.getInstance().addSprite(soldier);
         this.myteam.addSprite(soldier);
         return true;

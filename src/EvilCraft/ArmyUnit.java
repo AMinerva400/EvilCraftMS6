@@ -161,17 +161,15 @@ public abstract class ArmyUnit extends Sprite {
 
     protected int myticks = 0;
 
+    @Override
     public void update() {
         myticks++;
-        if (myticks % 5 == 0) {
+        if (myticks % 2 == 0) {
             if (this.navigationGoal != null) {
                 Point goal = this.navigationGoal;
-                
-                setNextMove();
-                
-                //int newx = this.getX() < goal.x ? this.getX() + 1 : this.getX() - 1;
-                //int newy = this.getY() < goal.y ? this.getY() + 1 : this.getY() - 1;
-                //this.setPos(newx, newy);
+                int newx = this.getX() < goal.x ? this.getX() + 1 : this.getX() - 1;
+                int newy = this.getY() < goal.y ? this.getY() + 1 : this.getY() - 1;
+                this.setPos(newx, newy);
             }
         }
         this.explode_ifenabled();

@@ -117,6 +117,11 @@ public class GameEngine implements IGameEngine {
         this.humanController = new ButtonController(this.getPlayerTeam(), this.buttonCanvas);
         this.aiButtonController = new ButtonController(this.getAITeam(), null); //no display device
         this.ai = new AI(this.getAITeam(), this.aiButtonController);
+        ge_instance = this;
+        Team t1 = new Team(50000, "Player");
+        Team t2 = new Team(50000, "Computer");
+        this.arrTeams.add(t1);
+        this.arrTeams.add(t2);
         //DON'T KILL THE ABOVE LINE
     }
 
@@ -130,40 +135,16 @@ public class GameEngine implements IGameEngine {
             this.arrMapTiles.get(i).drawOnMainView(mainview);
         }
         this.drawBackgroundOfMiniMap();
-        for(int i=0; i<this.arrSprites.size(); i++){
-            this.arrSprites.get(i).update();
-            this.arrSprites.get(i).setNextMove();
-            this.arrSprites.get(i).drawOnMainView(mainview);
-            this.arrSprites.get(i).drawOnMiniMap(minimap);
-        }
-        Team winner = this.CheckWinner();
-        if(winner!=null){
-            this.endGame(winner);
-        }
-        this.humanController.onTick();
-        this.mouseSprite.update();
-        this.mouseSprite.drawOnMainView(mainview);
-        this.ai.update();
-        ge_instance = this;
-        Team t1 = new Team(50000, "Player");
-        Team t2 = new Team(50000, "Computer");
-        this.arrTeams.add(t1);
-        this.arrTeams.add(t2);
-        //DON'T KILL THE ABOVE LINE
-    }
-/*
-    @Override
-    public void onTick() {
-        this.mainview.clear();
-        for(int i=0; i<this.arrMapTiles.size(); i++){
-            this.arrMapTiles.get(i).drawOnMainView(mainview);
-        }
         for (int i = 0; i < this.arrSprites.size(); i++) {
             Sprite sp = this.arrSprites.get(i);
+            sp.update();
             if (sp instanceof ArmyUnit) {
                 ((ArmyUnit) sp).setFireAction();
             }
-            sp.update();
+            if(!(sp instanceof Projectile)){
+                sp.setNextMove();
+                sp.drawOnMiniMap(minimap);
+            }
             sp.drawOnMainView(mainview);
         }
         //2. collect the dead
@@ -176,9 +157,17 @@ public class GameEngine implements IGameEngine {
         for(Sprite sp: arrDead){
             this.arrSprites.remove(sp);
         }
-
+        //Check Winner
+        Team winner = this.CheckWinner();
+        if(winner!=null){
+            this.endGame(winner);
+        }
+        this.humanController.onTick();
+        this.mouseSprite.update();
+        this.mouseSprite.drawOnMainView(mainview);
+        this.ai.update();
     }
-*/
+    
     @Override
     public void onRightClick(ICanvasDevice canvas, int x, int y) {
         Point pt = this.getGlobalCoordinates(canvas, x, y, map);
@@ -256,12 +245,10 @@ public class GameEngine implements IGameEngine {
      * Return the left top corner of a free space close to (x,y) The requested
      * free space's dimension is (w,h)
      *
->>>>>>> origin/NEW_MODULE_D
      * @param x
      * @param y
      * @param w
      * @param h
-<<<<<<< HEAD
      * @return 
      */
     public Point getFreeSpace(int x, int y, int w, int h){
