@@ -46,7 +46,7 @@ public class GameEngine implements IGameEngine {
     protected ArrayList<Sprite> arrSelected = null;
     protected MouseSprite mouseSprite = null;
     protected boolean [][] taken;
-    protected AI ai;
+    protected AI firstAI, secondAI;
     protected ButtonController aiButtonController= null;
 //---------------- OPERATIONS ------------------
     /**
@@ -114,14 +114,23 @@ public class GameEngine implements IGameEngine {
         this.mouseSprite = new MouseSprite(mainview, minimap, map);
         this.mainview.setupEventHandler(this);
         this.loadGameMap(this.mapPath);
-        this.humanController = new ButtonController(this.getPlayerTeam(), this.buttonCanvas);
+        ge_instance = this;
+        /*this.humanController = new ButtonController(this.getPlayerTeam(), this.buttonCanvas);
         this.aiButtonController = new ButtonController(this.getAITeam(), null); //no display device
         this.ai = new AI(this.getAITeam(), this.aiButtonController);
-        ge_instance = this;
         Team t1 = new Team(50000, "Player");
         Team t2 = new Team(50000, "Computer");
         this.arrTeams.add(t1);
-        this.arrTeams.add(t2);
+        this.arrTeams.add(t2);*/
+        
+        this.arrTeams.add(new Team(50000, "FIRST_AI"));
+        this.arrTeams.add(new Team(50000, "SECOND_AI"));
+        this.humanController = new ButtonController(this.getPlayerTeam(), null);
+        this.aiButtonController = new ButtonController(this.getAITeam(), null);
+        this.firstAI = new AI(this.getPlayerTeam(), this.humanController);
+        this.secondAI = new AI(this.getAITeam(), this.aiButtonController);
+        
+        
         //DON'T KILL THE ABOVE LINE
     }
 
@@ -162,10 +171,11 @@ public class GameEngine implements IGameEngine {
         if(winner!=null){
             this.endGame(winner);
         }
-        this.humanController.onTick();
+        //this.humanController.onTick();
         this.mouseSprite.update();
         this.mouseSprite.drawOnMainView(mainview);
-        this.ai.update();
+        this.firstAI.update();
+        this.secondAI.update();
     }
     
     @Override
