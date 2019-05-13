@@ -25,17 +25,6 @@ import java.util.ArrayList;
  *
  * @author csc190
  */
-public class Airplane extends Sprite{
-    protected int degree;
-    protected String picpath;
-
-    public Airplane(Team team, int x, int y, int w, int h) {
-        super(team, x, y, w, h, 40, 1, 1);
-        if(team==GameEngine.getInstance().getAITeam()){
-            picpath = "resources/images/team_yellow/plane/plane.png";
-        }else{
-             picpath = "resources/images/team_red/plane/plane.png";
-        }
 public class Airplane extends ArmyUnit {
 
     public Airplane(Team team, int x, int y, int w, int h) {
@@ -85,10 +74,19 @@ public class Airplane extends ArmyUnit {
 
     @Override
     public void adjustBodyHeading(Point pt) {
-
-        
-        
-    }
+        /*float targetDegree = this.getAngle(new Point(this.getX(), this.getY()), pt);
+        int iTargetDegree = (int) targetDegree;
+        int diff = (iTargetDegree-this.body_degree+360)%360;
+        if (diff > 180) {
+            //turn left
+            diff = diff - 180;
+            int offset = diff < 10 ? diff : 10;
+            this.body_degree -= offset;
+        } else {
+            int offset = diff < 10 ? diff : 10;
+            this.body_degree += offset;
+        }
+        this.body_degree = (this.body_degree+360)%360;*/
     }
 
     public void resetCoolRate() {

@@ -189,7 +189,7 @@ public class GameEngine implements IGameEngine {
         if(this.arrSelected!=null && this.arrSelected.size()>0){
             for(Sprite sprite: this.arrSelected){
                 sprite.setNavigationGoal(pt);
-                sprite.setAttackGoal(target.getID());
+                sprite.setAttackGoal(target.getSpriteInfo());
             }
         }
         this.mouseSprite.handleEvent(MouseEvent.RightClick, canvas, x, y, this.arrSelected);        
@@ -373,14 +373,24 @@ public class GameEngine implements IGameEngine {
      * @return 
      */
     public ArrayList<Sprite> getArrSprites(Point pt1, Point pt2, Team team){
-         ArrayList<Sprite> ret = new ArrayList<Sprite>();
-         for(int i=0; i<this.arrSprites.size(); i++){
-             Sprite s = arrSprites.get(i);
-             if(isCollide(pt1.x, pt1.y, pt2.x-pt1.x, pt2.y-pt1.y, s.getX(), s.getY(), s.getW(), s.getH())){
-                 ret.add(s);
-             }
-         }
-         return ret;
+        ArrayList<Sprite> arrRet = new ArrayList<Sprite>();
+        for (int i = 0; i < this.arrSprites.size(); i++) {
+            Sprite sp = this.arrSprites.get(i);
+            if (team == null || team == sp.team) {
+                if (MyMath.isCollide(pt1.x, pt1.y, pt2.x - pt1.x, pt2.y - pt1.y, sp.getX(), sp.getY(), sp.getW(), sp.getH())) {
+                    arrRet.add(sp);
+                }
+            }
+        }
+
+        if (team != null) {
+            Base base = team.getBase();
+            if (MyMath.isCollide(pt1.x, pt1.y, pt2.x - pt1.x, pt2.y - pt1.y, base.getX(), base.getY(), base.getW(), base.getH())) {
+                arrRet.add(base);
+            }
+        }
+
+        return arrRet;
     }
 
     @Override
@@ -421,157 +431,16 @@ public class GameEngine implements IGameEngine {
             return this.arrTeams.get(0).getTeamInfo();
         }
     }
-    
-    /**
-     * Approve if to allow propser to move to rectangle. Lefttop and width and height are provided
-     * Algorithm: call getArrSprites to get all colliding with rectangle, and then get the altitude and blocking score to decide.
-=======
-     * @return
-     */
-
-    public void addSprite(Sprite s) {
-        this.arrSprites.add(s);
-    }
-
-    public void removeSprite(Sprite s) {
-        this.arrSprites.remove(s);
-    }
-
-    /**
-     * return null if no winner
-     *
-     * @return
-     */
-    public Team CheckWinner() {
-        throw new UnsupportedOperationException("not implemented yet!");
-    }
-
-    /**
-     * Display the message correspondingly
-     *
-     * @param winner
-     */
-    public void endGame(Team winner) {
-        throw new UnsupportedOperationException("not implemented yet!");
-    }
-
-    /**
-     * Translates the (x1,y1) in canvas into the coordinates in Map
-     *
-     * @param canvas
-     * @param x1
-     * @param y1
-     * @return
-     */
-    public Point getGlobalCoordinates(ICanvasDevice canvas, int x1, int y1, Map map) {
-        throw new UnsupportedOperationException("not implemented yet");
-    }
-
-    /**
-     * Return the new left-top corner of mainview so that center point is now
-     * located at the center of the mainview
-     *
-     * @param center
-     * @param mainview
-     * @return
-     */
-    public Point getNewLeftTopCoordinates(Point center, ICanvasDevice mainview) {
-        throw new UnsupportedOperationException("not implemented yet");
-    }
-
-    /**
-     *
-     * @return human player team (by default it's arrTeams[0])
-     */
-    public Team getPlayerTeam() {
-        return this.arrTeams.get(0);
-
-    }
-
-    /**
-     *
-     * @return computer team (by default it's arrTeams[1])
-     */
-    public Team getAITeam() {
-        return this.arrTeams.get(1);
-    }
-
-    /**
-     * Get the units (including base but not map tiles) in between pt1 and pt2
-     * that belongs to the given team. If team is null, then both team's units
-     * will be included. Suggestion: use some advanced data storage to guarantee
-     * quick response!
-     *
-     * @param pt1
-     * @param pt2
-     * @param team
-     * @return
-     */
-    public ArrayList<Sprite> getArrSprites(Point pt1, Point pt2, Team team) {
-        ArrayList<Sprite> arrRet = new ArrayList<Sprite>();
-        for (int i = 0; i < this.arrSprites.size(); i++) {
-            Sprite sp = this.arrSprites.get(i);
-            if (team == null || team == sp.team) {
-                if (MyMath.isCollide(pt1.x, pt1.y, pt2.x - pt1.x, pt2.y - pt1.y, sp.getX(), sp.getY(), sp.getW(), sp.getH())) {
-                    arrRet.add(sp);
-                }
-            }
-        }
-
-        if (team != null) {
-            Base base = team.getBase();
-            if (MyMath.isCollide(pt1.x, pt1.y, pt2.x - pt1.x, pt2.y - pt1.y, base.getX(), base.getY(), base.getW(), base.getH())) {
-                arrRet.add(base);
-            }
-        }
-
-        return arrRet;
-    }
-
-    @Override
-    public void onMouseMoved(ICanvasDevice canvas, int x, int y
-    ) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    /**
-     * Create a background WritableImage for the MiniMap. Implementation idea:
-     * draw all maptiles as colored squares on the mini maps canvas and take a
-     * snapshot and save it as a WritableImage. Later you can simply draw that
-     * image in the minimap's canvas. Note: call canvas.takeSnapshot function.
-     */
-    public void createBackground() {
-        throw new UnsupportedOperationException("not implemented");
-    }
-
-    /**
-     * Take the previously saved snapshot of Minimap background and draw it.
-     */
-    public void drawBackgroundOfMiniMap() {
-        throw new UnsupportedOperationException("not impelemented");
-    }
-
-    /**
-     * Return the team info of the opponent team
-     *
-     * @param myteam
-     * @return
-     */
-    public TeamInfo getEnemyTeamInfo(Team myteam) {
-        throw new UnsupportedOperationException("not implemented yet");
-    }
 
     /**
      * Approve if to allow propser to move to rectangle. Lefttop and width and
      * height are provided Algorithm: call getArrSprites to get all colliding
      * with rectangle, and then get the altitude and blocking score to decide.
      *
->>>>>>> origin/NEW_MODULE_D
      * @param proposer
      * @param lefttop_corner
      * @param w
      * @param y
-<<<<<<< HEAD
      * @return 
      */
     public boolean approveNextMove(Sprite proposer, Point lefttop_corner, int width, int height){
@@ -645,7 +514,7 @@ public class GameEngine implements IGameEngine {
         }
 
     }
-/*
+
     protected int getDamageRange(Projectile p) {
         if (p instanceof Bullet) {
             return 20;
@@ -656,7 +525,7 @@ public class GameEngine implements IGameEngine {
         } else {
             return 0;
         }
-    }*/
+    }
 
     protected int getDamagePoints(Projectile p) {
         if (p instanceof Bullet) {

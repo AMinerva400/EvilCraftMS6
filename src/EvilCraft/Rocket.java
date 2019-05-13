@@ -43,10 +43,7 @@ public class Rocket extends Sprite {
     public void drawOnMiniMap(ICanvasDevice minimap) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/NEW_MODULE_D
+    
     @Override
     public Point getNextMove() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

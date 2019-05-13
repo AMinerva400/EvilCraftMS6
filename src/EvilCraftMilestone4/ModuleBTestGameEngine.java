@@ -34,6 +34,7 @@ public class ModuleBTestGameEngine extends GameEngine{
     public ModuleBTestGameEngine(String mapPath, ICanvasDevice mainview, ICanvasDevice minimap, ICanvasDevice factoryPanel, ISoundDevice sound) {
         super(mapPath, mainview, minimap, factoryPanel, sound);
     }
+    
     @Override
     public void init(){
         super.init();
@@ -50,9 +51,5 @@ public class ModuleBTestGameEngine extends GameEngine{
         this.addSprite(i2);
         this.getAITeam().addSprite(i1);
         this.getAITeam().addSprite(i2);
-        
-        
     }
-
-    
 }

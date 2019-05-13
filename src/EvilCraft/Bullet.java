@@ -24,13 +24,6 @@ import BridgePattern.ICanvasDevice;
 <<<<<<< HEAD
  * @author csc190
  */
-public class Bullet extends Sprite{
-    /**
-     * Note altitude decides if it hits units in sky or not
-=======
- *
- * @author csc190
- */
 public class Bullet extends Projectile {
 
     /**
@@ -46,9 +39,9 @@ public class Bullet extends Projectile {
 <<<<<<< HEAD
      * @param altitude 
      */
-    public Bullet(Team team, int x, int y, int w, int h, int lifepoints, int altitude) {
+    /*public Bullet(Team team, int x, int y, int w, int h, int lifepoints, int altitude) {
         
-    }
+    }*/
     public Bullet(Team team, int x, int y, int w, int h, int lifepoints, int altitude, int destx, int desty) {
         super(team, x, y, w, h, lifepoints, altitude, 0, destx, desty);
         this.setTravel(15);

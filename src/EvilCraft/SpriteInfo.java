@@ -22,30 +22,18 @@ package EvilCraft;
  * @author csc190
  */
 public class SpriteInfo {
-<<<<<<< HEAD
-    public enum TYPE {TANK, PLANE, INFANTRY, BULLET, SHELL, ROCKET, BASE, NONE};    
+    public enum TYPE {TANK, PLANE, INFANTRY, BULLET, SHELL, BOMB, ROCKET, BASE, NONE};    
     public TYPE type;
     public int x, y;
     public int lifepoints;
     public String id;
     
     public SpriteInfo(TYPE type, int x, int y, int lifepoints, String id){
-=======
-    public enum TYPE {TANK, PLANE, INFANTRY, BULLET, SHELL, BOMB, BASE};    
-    public TYPE type;
-    public int x, y;
-    public int lifepoints;
-    
-    public SpriteInfo(TYPE type, int x, int y, int lifepoints){
->>>>>>> origin/NEW_MODULE_D
         this.type = type;
         this.x = x;
         this.y = y;
         this.lifepoints = lifepoints;
-<<<<<<< HEAD
         this.id = id;
-=======
->>>>>>> origin/NEW_MODULE_D
     }
     
 }

@@ -40,6 +40,7 @@ public abstract class ArmyUnit extends Sprite {
      *
      * @param pt
      */
+    @Override
     public void setNavigationGoal(Point pt) {
         this.navigationGoal = pt;
     }
@@ -50,6 +51,7 @@ public abstract class ArmyUnit extends Sprite {
      *
      * @param sp
      */
+    @Override
     public void setAttackGoal(SpriteInfo sp) {
         this.attackGoal = sp;
     }
