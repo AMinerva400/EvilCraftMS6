@@ -37,7 +37,7 @@ public class AI {
      * Called by GameEngine.onTick() for every 150 ticks.
      * Make decision based on enemy info
      */
-    protected int ticks = 0;
+    protected int ticks = -1;
     public void update(){
         ticks++;
         //2. make the units
