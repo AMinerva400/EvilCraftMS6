@@ -160,7 +160,7 @@ public class MainAppMS4 extends Application {
          TestD3GameEngine g10 = new TestD3GameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
         createButton("TestNavigateAndShoot", g10, vboxTestButtons);
         */
-        GameEngine gEng = new GameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
+        GameEngine gEng = new GameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSoundPanel, fxSound);
         createButton("Run Game", gEng, vboxTestButtons);
         
        
