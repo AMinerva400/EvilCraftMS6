@@ -124,8 +124,11 @@ public class MainAppMS4 extends Application {
         vboxRight.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
         Canvas canvasMiniMap = new Canvas(200,200);
         FXCanvasDevice fxMiniMap = new FXCanvasDevice(canvasMiniMap);
-        Canvas canvasFactory = new Canvas(200, 800);
+        Canvas canvasFactory = new Canvas(800, 400);
         FXCanvasDevice fxFactoryPanel = new FXCanvasDevice(canvasFactory);
+        
+        Canvas secondCanvas = new Canvas(200, 400);
+        
         canvasMiniMap.getGraphicsContext2D().strokeText("MiniMap", 20, 100);
         canvasFactory.getGraphicsContext2D().strokeText("FACTORY PANEL", 20, 100);
         vboxRight.getChildren().add(canvasMiniMap);
