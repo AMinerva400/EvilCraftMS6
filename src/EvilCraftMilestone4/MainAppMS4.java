@@ -128,12 +128,14 @@ public class MainAppMS4 extends Application {
         FXCanvasDevice fxFactoryPanel = new FXCanvasDevice(canvasFactory);
         
         Canvas secondCanvas = new Canvas(200, 400);
+        FXCanvasDevice fxSoundPanel = new FXCanvasDevice(secondCanvas);
         
         canvasMiniMap.getGraphicsContext2D().strokeText("MiniMap", 20, 100);
         canvasFactory.getGraphicsContext2D().strokeText("FACTORY PANEL", 20, 100);
         vboxRight.getChildren().add(canvasMiniMap);
         vboxRight.getChildren().add(canvasFactory);
-                
+        vboxRight.getChildren().add(secondCanvas);
+        
         //3. Create the VBox (right banner) 200x100 and Add Buttons
         VBox vboxTestButtons = new VBox();
         vboxTestButtons.setPrefSize(200, 1000);
