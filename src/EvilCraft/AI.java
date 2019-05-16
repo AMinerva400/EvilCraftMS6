@@ -37,17 +37,18 @@ public class AI {
      * Called by GameEngine.onTick() for every 150 ticks.
      * Make decision based on enemy info
      */
-    protected int ticks = 0;
+    
+    protected int ticks = -1;
     public void update(){
         ticks++;
         //2. make the units
         if(ticks%50==0){
             this.btnController.spawnInfantry();
         }
-        if(ticks%50==0){
+        if(ticks%50==25){
             this.btnController.spawnTank();
         }
-        if(ticks%100==0){
+        if(ticks%50==49){
             this.btnController.spawnAircraft();
         }
         

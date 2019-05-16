@@ -16,7 +16,6 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 package EvilCraft;
-//Conflicts solved by Akash
 
 import BridgePattern.ICanvasDevice;
 import BridgePattern.IGameEngine;
@@ -132,8 +131,8 @@ public class GameEngine implements IGameEngine {
         this.getAITeam().setBase(b2);
         this.firstController = new ButtonController(this.getPlayerTeam(), firstButtonCanvas);
         this.secondController = new ButtonController(this.getAITeam(), secondButtonCanvas);
-        this.firstAI = new AI(this.getPlayerTeam(), this.firstController);
-        //this.secondAI = new AI(this.getAITeam(), this.secondController);
+        //this.firstAI = new AI(this.getPlayerTeam(), this.firstController);
+        this.secondAI = new AI(this.getAITeam(), this.secondController);
         
         
         //DON'T KILL THE ABOVE LINE
@@ -180,7 +179,7 @@ public class GameEngine implements IGameEngine {
         this.secondController.onTick();
         this.mouseSprite.update();
         this.mouseSprite.drawOnMainView(mainview);
-        this.firstAI.update();
+        //this.firstAI.update();
         this.secondAI.update();
     }
     

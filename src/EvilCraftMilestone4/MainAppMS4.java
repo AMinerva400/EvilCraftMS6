@@ -124,13 +124,18 @@ public class MainAppMS4 extends Application {
         vboxRight.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
         Canvas canvasMiniMap = new Canvas(200,200);
         FXCanvasDevice fxMiniMap = new FXCanvasDevice(canvasMiniMap);
-        Canvas canvasFactory = new Canvas(200, 800);
+        Canvas canvasFactory = new Canvas(200, 400);
         FXCanvasDevice fxFactoryPanel = new FXCanvasDevice(canvasFactory);
+        
+        Canvas secondCanvas = new Canvas(200, 400);
+        FXCanvasDevice fxSoundPanel = new FXCanvasDevice(secondCanvas);
+        
         canvasMiniMap.getGraphicsContext2D().strokeText("MiniMap", 20, 100);
         canvasFactory.getGraphicsContext2D().strokeText("FACTORY PANEL", 20, 100);
         vboxRight.getChildren().add(canvasMiniMap);
         vboxRight.getChildren().add(canvasFactory);
-                
+        vboxRight.getChildren().add(secondCanvas);
+        
         //3. Create the VBox (right banner) 200x100 and Add Buttons
         VBox vboxTestButtons = new VBox();
         vboxTestButtons.setPrefSize(200, 1000);
@@ -155,7 +160,7 @@ public class MainAppMS4 extends Application {
          TestD3GameEngine g10 = new TestD3GameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
         createButton("TestNavigateAndShoot", g10, vboxTestButtons);
         */
-        GameEngine gEng = new GameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
+        GameEngine gEng = new GameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSoundPanel, fxSound);
         createButton("Run Game", gEng, vboxTestButtons);
         
        
