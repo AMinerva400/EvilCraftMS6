@@ -16,7 +16,6 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 package EvilCraft;
-//Conflicts solved by Akash
 
 import BridgePattern.ICanvasDevice;
 import BridgePattern.IGameEngine;
@@ -117,23 +116,18 @@ public class GameEngine implements IGameEngine {
         this.mainview.setupEventHandler(this);
         this.loadGameMap(this.mapPath);
         ge_instance = this;
-        /*this.humanController = new ButtonController(this.getPlayerTeam(), this.buttonCanvas);
-        this.aiButtonController = new ButtonController(this.getAITeam(), null); //no display device
-        this.ai = new AI(this.getAITeam(), this.aiButtonController);
-        Team t1 = new Team(50000, "Player");
-        Team t2 = new Team(50000, "Computer");
-        this.arrTeams.add(t1);
-        this.arrTeams.add(t2);*/
         Base b1 = new Base(this.getPlayerTeam(), 100, 100, 100, 100, "b1");
         Base b2 = new Base(this.getAITeam(), 500, 700, 100, 100, "b2");
         this.addSprite(b1);
         this.addSprite(b2);
         this.getPlayerTeam().setBase(b1);
         this.getAITeam().setBase(b2);
+
         this.firstController = new ButtonController(this.getPlayerTeam(), firstButtonCanvas);
         this.secondController = new ButtonController(this.getAITeam(), secondButtonCanvas);
         this.firstAI = new AI(this.getPlayerTeam(), this.firstController);
         this.secondAI = new AI(this.getAITeam(), this.secondController);
+
         
         
         //DON'T KILL THE ABOVE LINE
@@ -176,11 +170,13 @@ public class GameEngine implements IGameEngine {
         if(winner!=null){
             this.endGame(winner);
         }
+
         this.firstController.onTick();
         this.secondController.onTick();
+
         this.mouseSprite.update();
         this.mouseSprite.drawOnMainView(mainview);
-        this.firstAI.update();
+        //this.firstAI.update();
         this.secondAI.update();
     }
     
