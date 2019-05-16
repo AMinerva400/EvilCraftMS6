@@ -170,7 +170,7 @@ public class GameEngine implements IGameEngine {
         this.secondController.onTick();
         this.mouseSprite.update();
         this.mouseSprite.drawOnMainView(mainview);
-        //this.firstAI.update();
+        this.firstAI.update();
         this.secondAI.update();
     }
     

@@ -45,10 +45,10 @@ public class AI {
         if(ticks%50==0){
             this.btnController.spawnInfantry();
         }
-        if(ticks%50==0){
+        if(ticks%50==25){
             this.btnController.spawnTank();
         }
-        if(ticks%100==0){
+        if(ticks%50==49){
             this.btnController.spawnAircraft();
         }
         

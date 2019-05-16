@@ -124,7 +124,7 @@ public class MainAppMS4 extends Application {
         vboxRight.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
         Canvas canvasMiniMap = new Canvas(200,200);
         FXCanvasDevice fxMiniMap = new FXCanvasDevice(canvasMiniMap);
-        Canvas canvasFactory = new Canvas(800, 400);
+        Canvas canvasFactory = new Canvas(200, 400);
         FXCanvasDevice fxFactoryPanel = new FXCanvasDevice(canvasFactory);
         
         Canvas secondCanvas = new Canvas(200, 400);
