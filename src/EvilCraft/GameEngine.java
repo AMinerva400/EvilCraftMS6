@@ -133,7 +133,7 @@ public class GameEngine implements IGameEngine {
         this.firstController = new ButtonController(this.getPlayerTeam(), firstButtonCanvas);
         this.secondController = new ButtonController(this.getAITeam(), secondButtonCanvas);
         this.firstAI = new AI(this.getPlayerTeam(), this.firstController);
-        this.secondAI = new AI(this.getAITeam(), this.secondController);
+        //this.secondAI = new AI(this.getAITeam(), this.secondController);
         
         
         //DON'T KILL THE ABOVE LINE
