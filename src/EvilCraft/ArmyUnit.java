@@ -27,8 +27,8 @@ import java.util.ArrayList;
  */
 public abstract class ArmyUnit extends Sprite {
 
-    protected SpriteInfo attackGoal = null;
-    protected Point navigationGoal = null;
+    //protected SpriteInfo attackGoal = null;
+    //protected Point navigationGoal = null;
     private int coolTicksNeeded = 0;
 
     public ArmyUnit(Team team, int x, int y, int w, int h, int lifepoints, int altitude, int block_score) {
@@ -164,12 +164,9 @@ public abstract class ArmyUnit extends Sprite {
     @Override
     public void update() {
         myticks++;
-        if (myticks % 2 == 0) {
+        if (myticks % 5 == 0) {
             if (this.navigationGoal != null) {
-                Point goal = this.navigationGoal;
-                int newx = this.getX() < goal.x ? this.getX() + 1 : this.getX() - 1;
-                int newy = this.getY() < goal.y ? this.getY() + 1 : this.getY() - 1;
-                this.setPos(newx, newy);
+               this.setNextMove();
             }
         }
         this.explode_ifenabled();

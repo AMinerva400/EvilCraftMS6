@@ -121,42 +121,21 @@ public class ButtonController implements IGameEngine{
     /**
      * return true if there's money for it
      */
-    public boolean spawnTank() {
-        if (!this.myteam.PurchaseSprite("TANK")) {
-            return false;
-        }
-        Point pt = this.genRandomLoc();
-        Tank tank = new Tank(this.myteam, pt.x, pt.y, 50, 50);
-        GameEngine.getInstance().addSprite(tank); // conflict needs to be resolved in game engine
-        this.myteam.addSprite(tank);
-        return true;
+    public void spawnTank() {
+        this.arrButtons.get(1).onClick();
     }
 
     /**
      * return true if there's money for it
      */
-    public boolean spawnAircraft() {
-        if (!this.myteam.PurchaseSprite("PLANE")) {
-            return false;
-        }
-        Point pt = this.genRandomLoc();
-        Airplane plane = new Airplane(this.myteam, pt.x, pt.y, 50, 50);
-        GameEngine.getInstance().addSprite(plane); 
-        this.myteam.addSprite(plane);
-        return true;
+    public void spawnAircraft() {
+        this.arrButtons.get(2).onClick();
     }
 
     /**
      * return true if there's money for it
      */
-    public boolean spawnInfantry() {
-        if (!this.myteam.PurchaseSprite("INFANTRY")) {
-            return false;
-        }
-        Point pt = this.genRandomLoc();
-        Infantry soldier = new Infantry(this.myteam, pt.x, pt.y, 50, 50);
-        GameEngine.getInstance().addSprite(soldier);
-        this.myteam.addSprite(soldier);
-        return true;
+    public void spawnInfantry() {
+        this.arrButtons.get(0).onClick();
     } 
 }

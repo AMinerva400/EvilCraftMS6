@@ -24,7 +24,7 @@ package EvilCraft;
 public class Base extends StaticObject{
     
     public Base(Team team, int x, int y, int w, int h, String maptile) {
-        super(team, x, y, w, h, maptile, 100);
+        super(team, x, y, w, h, maptile, 1000);
     }
     
 }

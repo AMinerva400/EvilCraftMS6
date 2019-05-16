@@ -37,17 +37,18 @@ public class GameEngine implements IGameEngine {
     protected ICanvasDevice mainview;
     protected ICanvasDevice minimap;
     protected ISoundDevice soundDevice;
-    protected ICanvasDevice buttonCanvas;
+    protected ICanvasDevice firstButtonCanvas;
+    protected ICanvasDevice secondButtonCanvas;
     protected static GameEngine ge_instance = null;
     protected ArrayList<Sprite> arrSprites = new ArrayList<Sprite>(); //moving objects
     protected ArrayList<StaticObject> arrMapTiles = new ArrayList<StaticObject>();
     protected ArrayList<Team> arrTeams = new ArrayList<Team>();
-    protected ButtonController humanController;
+    protected ButtonController firstController;
     protected ArrayList<Sprite> arrSelected = null;
     protected MouseSprite mouseSprite = null;
     protected boolean [][] taken;
     protected AI firstAI, secondAI;
-    protected ButtonController aiButtonController= null;
+    protected ButtonController secondController;
 //---------------- OPERATIONS ------------------
     /**
      * Constructor.
@@ -68,12 +69,13 @@ public class GameEngine implements IGameEngine {
      * @param factoryPanel
      * @param sound 
      */
-    public GameEngine(String mapPath, ICanvasDevice mainview, ICanvasDevice minimap, ICanvasDevice factoryPanel, ISoundDevice sound) {
+    public GameEngine(String mapPath, ICanvasDevice mainview, ICanvasDevice minimap, ICanvasDevice factoryPanel, ICanvasDevice secondPanel, ISoundDevice sound) {
 
         this.mapPath = mapPath;
         this.mainview = mainview;
         this.minimap = minimap;
-        this.buttonCanvas = factoryPanel;
+        this.firstButtonCanvas = factoryPanel;
+        this.secondButtonCanvas = secondPanel;
         this.soundDevice = soundDevice;
         this.map = new Map(this.mapPath, this.mainview);
         this.mouseSprite = new MouseSprite(this.mainview, this.minimap, this.map);
@@ -122,20 +124,16 @@ public class GameEngine implements IGameEngine {
         Team t2 = new Team(50000, "Computer");
         this.arrTeams.add(t1);
         this.arrTeams.add(t2);*/
-        Team t1 = new Team(50000, "FIRST_AI");
-        Team t2 = new Team(50000, "SECOND_AI");
-        this.arrTeams.add(t1);
-        this.arrTeams.add(t2);
-        Base b1 = new Base(t1, 100, 100, 100, 100, "b1");
-        Base b2 = new Base(t2, 700, 700, 100, 100, "b2");
+        Base b1 = new Base(this.getPlayerTeam(), 100, 100, 100, 100, "b1");
+        Base b2 = new Base(this.getAITeam(), 500, 700, 100, 100, "b2");
         this.addSprite(b1);
         this.addSprite(b2);
         this.getPlayerTeam().setBase(b1);
         this.getAITeam().setBase(b2);
-        this.humanController = new ButtonController(this.getPlayerTeam(), null);
-        this.aiButtonController = new ButtonController(this.getAITeam(), null);
-        this.firstAI = new AI(this.getPlayerTeam(), this.humanController);
-        this.secondAI = new AI(this.getAITeam(), this.aiButtonController);
+        this.firstController = new ButtonController(this.getPlayerTeam(), firstButtonCanvas);
+        this.secondController = new ButtonController(this.getAITeam(), secondButtonCanvas);
+        this.firstAI = new AI(this.getPlayerTeam(), this.firstController);
+        this.secondAI = new AI(this.getAITeam(), this.secondController);
         
         
         //DON'T KILL THE ABOVE LINE
@@ -178,7 +176,8 @@ public class GameEngine implements IGameEngine {
         if(winner!=null){
             this.endGame(winner);
         }
-        //this.humanController.onTick();
+        this.firstController.onTick();
+        this.secondController.onTick();
         this.mouseSprite.update();
         this.mouseSprite.drawOnMainView(mainview);
         this.firstAI.update();
