@@ -160,6 +160,8 @@ public class GameEngine implements IGameEngine {
         }
         for(Sprite sp: arrDead){
             this.arrSprites.remove(sp);
+            Team team = sp.getTeam();
+            team.removeSprite(sp);
         }
         //Check Winner
         Team winner = this.CheckWinner();

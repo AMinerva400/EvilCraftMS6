@@ -66,6 +66,7 @@ public class AIEngine implements IGameEngine {
      * @param mainview
      * @param minimap
      * @param factoryPanel
+     * @param secondPanel
      * @param sound 
      */
     public AIEngine(String mapPath, ICanvasDevice mainview, ICanvasDevice minimap, ICanvasDevice factoryPanel, ICanvasDevice secondPanel, ISoundDevice sound) {

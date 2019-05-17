@@ -41,6 +41,7 @@ public class Team {
     
     public void setBase(Base base){
         this.base = base;
+        System.out.println("base Set: " + base.toString());
     }
 
     private int getPrice(String sprite){
@@ -84,12 +85,16 @@ public class Team {
         this.arrSprites.add(sprite);
     }
     
+    public void removeSprite(Sprite sprite){
+        this.arrSprites.remove(sprite);
+    }
+    
     public ArrayList<Sprite> getSprites(){       
         return this.arrSprites;
     }
     
     protected TeamInfo getTeamInfo(){
-        SpriteInfo binfo = this.getBase().getSpriteInfo();
+        SpriteInfo binfo = base.getSpriteInfo();
         ArrayList<SpriteInfo> arrInfo = new ArrayList<SpriteInfo>();
         for(int i=0; i<this.arrSprites.size(); i++){
             arrInfo.add(this.arrSprites.get(i).getSpriteInfo());

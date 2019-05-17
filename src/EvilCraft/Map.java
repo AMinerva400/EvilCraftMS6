@@ -76,8 +76,8 @@ public class Map {
      * @param maptile
      * @return 
      */
-    protected static final String obstacles [] = {"t1", "b1", "b2"};
-    public boolean isObstacle(String maptile){
+    protected static final String obstacles [] = {"t1", "t2"};
+    public static boolean isObstacle(String maptile){
         for(String s: obstacles){
             if(s.equals(maptile)){
                 return true;
