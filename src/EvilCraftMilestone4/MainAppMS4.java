@@ -124,7 +124,7 @@ public class MainAppMS4 extends Application {
         vboxRight.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
         Canvas canvasMiniMap = new Canvas(200,200);
         FXCanvasDevice fxMiniMap = new FXCanvasDevice(canvasMiniMap);
-        Canvas canvasFactory = new Canvas(800, 400);
+        Canvas canvasFactory = new Canvas(200, 400);
         FXCanvasDevice fxFactoryPanel = new FXCanvasDevice(canvasFactory);
         
         Canvas secondCanvas = new Canvas(200, 400);
@@ -160,11 +160,12 @@ public class MainAppMS4 extends Application {
          TestD3GameEngine g10 = new TestD3GameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSound);
         createButton("TestNavigateAndShoot", g10, vboxTestButtons);
         */
-        GameEngine gEng = new GameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSoundPanel, fxSound);
-        createButton("Run Game", gEng, vboxTestButtons);
+        
         
        
-        
+       
+        GameEngine gEng = new GameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSoundPanel, fxSound);
+        createButton("Run Game", gEng, vboxTestButtons);
 
         //3. First layer HBox (horitontal box) of Canvas and VBox
         HBox hbox = new HBox();
