@@ -300,7 +300,7 @@ public class GameEngine implements IGameEngine {
      * @param winner 
      */
     public void endGame(Team winner){
-        String msg = winner.getName().equals("Human")? "You Win!": "You Lose";
+        String msg = winner.getName().equals("Player")? "Red Team Wins!":"Yellow Team Wins!";
         this.mainview.drawText(msg, 400, 400, 20);
     }
     

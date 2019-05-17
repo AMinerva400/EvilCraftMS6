@@ -44,10 +44,11 @@ public class ButtonController implements IGameEngine{
         this.canvas = canvas;
         String [] arrTypes = new String [] {ShopButton.INFANTRY, ShopButton.TANK, ShopButton.PLANE};
         String basePath = "resources/images/common/";
+        String red = this.myteam == GameEngine.getInstance().getPlayerTeam()?"red_":"yellow_";
         String [] paths = new String []{
-            basePath + "infantry_btn.png",
-            basePath + "tank_btn.png", 
-            basePath + "plane_btn.png"
+            basePath + red +  "infantry_btn.png",
+            basePath + red + "tank_btn.png", 
+            basePath + red + "plane_btn.png"
         };
         this.arrButtons = new ArrayList<ShopButton>();
         for(int i=0; i<arrTypes.length; i++){
