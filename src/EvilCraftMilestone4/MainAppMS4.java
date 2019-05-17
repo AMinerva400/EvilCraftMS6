@@ -20,6 +20,7 @@ package EvilCraftMilestone4;
 
 import EvilCraftMilestone3.*;
 import BridgePattern.IGameEngine;
+import EvilCraft.AIEngine;
 import EvilCraft.GameEngine;
 import EvilCraftMilestone2.GameTickEfficiency;
 import FXDevices.FXCanvasDevice;
@@ -166,6 +167,9 @@ public class MainAppMS4 extends Application {
        
         GameEngine gEng = new GameEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSoundPanel, fxSound);
         createButton("Run Game", gEng, vboxTestButtons);
+        
+        AIEngine aiEng = new AIEngine("resources/map/small.txt", fxMainView, fxMiniMap, fxFactoryPanel, fxSoundPanel, fxSound);
+        createButton("Run AI vs. AI", aiEng, vboxTestButtons);
 
         //3. First layer HBox (horitontal box) of Canvas and VBox
         HBox hbox = new HBox();
